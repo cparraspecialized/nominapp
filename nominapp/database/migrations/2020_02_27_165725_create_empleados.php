@@ -14,8 +14,17 @@ class CreateEmpleados extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('cedula');
+            $table->string('nombreEmpleado');
+            $table->string('apellidoEmpleado');
+            $table->unsignedInteger('fkidTienda')->nullable();
+            $table->string('estadoEmpleado');
             $table->timestamps();
+
+
+            $table->foreign('fkidTienda')->references('id')->on('tiendas')
+            ->onDelete('set null')
+            ->onUpdate('cascade');
         });
     }
 

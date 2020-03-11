@@ -14,7 +14,7 @@ class TipoHoras extends Migration
     public function up()
     {
         Schema::create('tipoHoras', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('descripcionTipo');
             $table->timestamps();
         });

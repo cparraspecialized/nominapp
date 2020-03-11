@@ -14,7 +14,7 @@ class Tiendas extends Migration
     public function up()
     {
         Schema::create('tiendas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('nombreTienda');
             $table->unsignedInteger('fkcodigoMunicipio')->nullable();
             $table->timestamps();
