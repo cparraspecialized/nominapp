@@ -7,19 +7,19 @@ $(function(){
 function onSelectProjectChange(){
     var departamento_id = $(this).val();
 
-    $.get('/api/bicicleta/cliente/'+departamento_id+'/municipios',function (data){
+    $.get('/api/Tiendas/'+departamento_id+'/municipios',function (data){
         var html_select = '<option value="">Seleccione Municipio</option>';
         for(var i=0; i<data.length; i++){
-            html_select += '<option value="'+data[i].mun_codigo+'">'+data[i].mun_nombre+'</option>' ;
+            html_select += '<option value="'+data[i].codigoMunicipio+'">'+data[i].nombreMunicipio+'</option>' ;
 
-            $('#municipio').html(html_select);
+            $('#fkcodigoMunicipio').html(html_select);
         }
     })
 }
 
 $(function(){
 
-    $("#municipio").on('change',onSelectProjectChangee);
+    $("#fkcodigoMunicipio").on('change',onSelectProjectChangee);
 
 })
 
