@@ -218,8 +218,9 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu Principal</li>
             <li><a href="{{url('Tiendas/create')}}"><i class="fa fa-circle-o"></i> Crear Tienda</a></li>
-            <li><a href="{{url('bicicleta/cliente')}}"><i class="fa fa-circle-o"></i> Clientes</a></li>
-            <li><a href="{{url('bicicleta/prestamo')}}"><i class="fa fa-circle-o"></i> Prestamos</a></li>
+            <li><a href="{{url('Tiendas/')}}"><i class="fa fa-circle-o"></i> Consultar Tienda</a></li>
+            <li><a href="{{url('Empleados/create')}}"><i class="fa fa-circle-o"></i> Crear Empleados</a></li>
+            <li><a href="{{url('Empleados/')}}"><i class="fa fa-circle-o"></i> Consultar Empleados</a></li>
         </li>   
       </ul>
     </section>
