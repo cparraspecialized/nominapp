@@ -6,7 +6,7 @@
            
         {!!Form::open(array('url'=>'Retiros','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
         {{Form::token()}}
-        <div class="form-group">
+        <h4><div class="form-group">
             <label for="fkcedulaEmpleado">Cedula del Empleado:</label>
             {!! Form::select('fkcedulaEmpleado',$empleados,null,['id'=>'fkcedulaEmpleado', 'placeholder'=>'Seleccione Empleado'],['class' => 'form-control'])!!}
         </div>
@@ -19,11 +19,11 @@
             <input type="date" name="fechaRetiro" class="form-control" placeholder="Fecha de retiro">
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Guardar</button>
-            <button class="btn btn-danger" type="reset">Cancelar</button>
-        </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+            <button class="btn btn-danger btn-lg btn-block" type="reset">Cancelar</button>
+        </div></h4>
 
         {!!Form::close()!!}
     </div>
-    </div>
+   
 @endsection

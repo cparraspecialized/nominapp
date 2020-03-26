@@ -6,16 +6,16 @@
            
         {!!Form::open(array('url'=>'TipoHoras','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
         {{Form::token()}}        
-        <div class="form-group">
+        <h4><div class="form-group">
             <label for="descripcionTipo">Descripcion tipo hora</label>
             <input type="text" name="descripcionTipo" class="form-control" placeholder="Descripcion">
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Guardar</button>
-            <button class="btn btn-danger" type="reset">Cancelar</button>
-        </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+            <button class="btn btn-danger btn-lg btn-block" type="reset">Cancelar</button>
+        </div></h4>
 
         {!!Form::close()!!}
         </div>
-    </div>
+   
 @endsection
