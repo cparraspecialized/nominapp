@@ -229,6 +229,10 @@
             <li><a href="{{url('TipoHoras/')}}"><i class="fa fa-circle-o"></i> Consultar Tipo de Horas</a></li>
             <li><a href="{{url('HoraExtras/create')}}"><i class="fa fa-circle-o"></i> Crear Hora extras</a></li>
             <li><a href="{{url('HoraExtras/')}}"><i class="fa fa-circle-o"></i> Consultar Horas Extras</a></li>
+            <li><a href="{{url('TipoNovedad/create')}}"><i class="fa fa-circle-o"></i> Crear Tipo Novedad</a></li>
+            <li><a href="{{url('TipoNovedad/')}}"><i class="fa fa-circle-o"></i> Consultar Tpo Novedad</a></li>
+            <li><a href="{{url('Novedades/create')}}"><i class="fa fa-circle-o"></i> Crear Novedad</a></li>
+            <li><a href="{{url('Novedades/')}}"><i class="fa fa-circle-o"></i> Consultar Novedad</a></li>
         </li>   
       </ul>
     </section>
