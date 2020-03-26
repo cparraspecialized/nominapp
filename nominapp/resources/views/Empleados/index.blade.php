@@ -24,7 +24,7 @@
                     <td>{{$emp->cedula}}</td>
                     <td>{{$emp->nombreEmpleado}}</td>
                     <td>{{$emp->apellidoEmpleado}}</td>
-                    <td>{{$emp->fkidTienda}}</td>
+                    <td>{{$emp->tiendas['nombreTienda']}}</td>
                     <td>{{$emp->estadoEmpleado}}</td>
                 </tr>
                 @endforeach

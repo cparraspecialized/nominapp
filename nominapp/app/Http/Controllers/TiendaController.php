@@ -8,6 +8,8 @@ use App\Http\Requests\TiendaFormRequest;
 use App\Municipio;
 use App\Departamento;
 use App\Tienda;
+use Exception;
+
 
 use DB;
 
@@ -20,9 +22,9 @@ class TiendaController extends Controller
 
     public function index(Request $request){
 
-        $tiendas = DB::table('tiendas')->get();
+        $tiendas =Tienda::orderBy('id','desc')->paginate(10);
 
-        return view('Tiendas.index', ['tiendas' => $tiendas]);
+        return view('Tiendas.index', compact('tiendas'));
     }
 
     public function store(Request $request){

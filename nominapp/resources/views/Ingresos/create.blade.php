@@ -8,7 +8,7 @@
         {{Form::token()}}
         <div class="form-group">
             <label for="fkcedulaEmpleado">Cedula del Empleado:</label>
-            {!! Form::select('fkcedulaEmpleado',$empleados,null,['id'=>'fkcedulaEmpleado', 'placeholder'=>'Seleccione Tienda'],['class' => 'form-control'])!!}
+            {!! Form::select('fkcedulaEmpleado',$empleados,null,['id'=>'fkcedulaEmpleado', 'placeholder'=>'Seleccione Empleado'],['class' => 'form-control'])!!}
         </div>
         <div class="form-group">
             <label for="descripcionIngreso">Descripcion Ingreso</label>

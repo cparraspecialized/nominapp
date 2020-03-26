@@ -34,7 +34,7 @@ class Municipio extends Model
 
     // Un MUNICIPIO tiene varias TIENDAS
 
-    public function Tiendas(){
-    return $this->hasMany(Tienda::class,'codigoMunicipio');
+    public function tiendas(){
+    return $this->hasMany(Tienda::class);
     }
 }

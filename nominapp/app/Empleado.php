@@ -39,4 +39,8 @@ class Empleado extends Model
         return $this->belongsTo(HoraExtra::class,'cedula');
     }
 
+    public function tiendas(){
+        return $this->belongsTo(Tienda::class,'fkidTienda');
+    }
+
 }

@@ -21,10 +21,11 @@
                 <tr>
                     <td>{{$tie->id}}</td>
                     <td>{{$tie->nombreTienda}}</td>
-                    <td>{{$tie->fkcodigoMunicipio}}</td>
+                    <td>{{$tie->municipio['nombreMunicipio']}}</td>
                 </tr>
                 @endforeach
             </table>
+            {{ $tiendas->render() }} 
         </div>
     </div>
 </div>

@@ -23,10 +23,11 @@
                     <td>{{$ing->fkcedulaEmpleado}}</td>
                     <td>{{$ing->descripcionIngreso}}</td>
                     <td>{{$ing->fechaIngreso}}</td>
-                    <td>{{$ing->fkidUsuario}}</td>
+                    <td>{{$ing->users['name']}}</td>
                 </tr>
                 @endforeach
             </table>
+            {{ $ingresos->render() }} 
         </div>
     </div>
 </div>

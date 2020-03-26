@@ -27,9 +27,11 @@ class Tienda extends Model
    ];
 
    //Una TIENDA tiene un MUNICPIO
-   public function Municipio(){
+   public function municipio(){
     return $this->belongsTo(Municipio::class,'fkcodigoMunicipio');
     }
+
+    
 
 }
 

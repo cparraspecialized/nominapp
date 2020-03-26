@@ -29,4 +29,8 @@ class Ingreso extends Model
     return $this->belongsTo(Empleado::class,'fkcedulaEmpleado');
     }
 
+    public function users(){
+        return $this->belongsTo(User::class,'fkidUsuario');
+    }
+
 }

@@ -27,9 +27,9 @@ class EmpleadoController extends Controller
 
     public function index(Request $request){
 
-        $empleados = DB::table('empleados')->get();
+        $empleados =Empleado::orderBy('created_at','desc')->paginate(10);
 
-        return view('Empleados.index', ['empleados' => $empleados]);
+        return view('Empleados.index', compact('empleados'));
     }
 
     public function store(Request $request){

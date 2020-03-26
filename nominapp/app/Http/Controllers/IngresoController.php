@@ -28,9 +28,9 @@ class IngresoController extends Controller
 
     public function index(Request $request){
 
-        $ingresos = DB::table('ingreso')->get();
+         $ingresos =Ingreso::orderBy('id','desc')->paginate(10);
 
-        return view('Ingresos.index', ['ingresos' => $ingresos]);
+        return view('Ingresos.index', compact('ingresos'));
     }
 
     public function store(Request $request){
