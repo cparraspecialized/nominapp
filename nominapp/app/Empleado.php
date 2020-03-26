@@ -31,4 +31,8 @@ class Empleado extends Model
     return $this->belongsTo(Ingreso::class,'cedula');
     }
 
+    public function Retiro(){
+        return $this->belongsTo(Retiro::class,'cedula');
+        }
+
 }
