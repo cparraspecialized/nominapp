@@ -221,6 +221,10 @@
             <li><a href="{{url('Tiendas/')}}"><i class="fa fa-circle-o"></i> Consultar Tienda</a></li>
             <li><a href="{{url('Empleados/create')}}"><i class="fa fa-circle-o"></i> Crear Empleados</a></li>
             <li><a href="{{url('Empleados/')}}"><i class="fa fa-circle-o"></i> Consultar Empleados</a></li>
+            <li><a href="{{url('Ingresos/create')}}"><i class="fa fa-circle-o"></i> Crear Ingresos</a></li>
+            <li><a href="{{url('Ingresos/')}}"><i class="fa fa-circle-o"></i> Consultar Ingresos</a></li>
+            <li><a href="{{url('Retiros/create')}}"><i class="fa fa-circle-o"></i> Crear Retiros</a></li>
+            <li><a href="{{url('Retiros/')}}"><i class="fa fa-circle-o"></i> Consultar Retiros</a></li>
         </li>   
       </ul>
     </section>
