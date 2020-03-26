@@ -15,7 +15,7 @@
                     <th>Cedula</th>
                     <th>Descripcion</th>
                     <th>Fecha de ingreso</th>
-                    <th>IUsuario que hizo ingreso</th>
+                    <th>Usuario que hizo ingreso</th>
 
                 </thead>
                 @foreach ($ingresos as $ing)

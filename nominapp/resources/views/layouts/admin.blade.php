@@ -29,7 +29,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-red-ligth sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -199,7 +199,7 @@
           <img src="../../dist/img/logo.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Admin</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -217,22 +217,93 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu Principal</li>
-            <li><a href="{{url('Tiendas/create')}}"><i class="fa fa-circle-o"></i> Crear Tienda</a></li>
-            <li><a href="{{url('Tiendas/')}}"><i class="fa fa-circle-o"></i> Consultar Tienda</a></li>
-            <li><a href="{{url('Empleados/create')}}"><i class="fa fa-circle-o"></i> Crear Empleados</a></li>
-            <li><a href="{{url('Empleados/')}}"><i class="fa fa-circle-o"></i> Consultar Empleados</a></li>
-            <li><a href="{{url('Ingresos/create')}}"><i class="fa fa-circle-o"></i> Crear Ingresos</a></li>
-            <li><a href="{{url('Ingresos/')}}"><i class="fa fa-circle-o"></i> Consultar Ingresos</a></li>
-            <li><a href="{{url('Retiros/create')}}"><i class="fa fa-circle-o"></i> Crear Retiros</a></li>
-            <li><a href="{{url('Retiros/')}}"><i class="fa fa-circle-o"></i> Consultar Retiros</a></li>
-            <li><a href="{{url('TipoHoras/create')}}"><i class="fa fa-circle-o"></i> Crear Tipo Hora</a></li>
-            <li><a href="{{url('TipoHoras/')}}"><i class="fa fa-circle-o"></i> Consultar Tipo de Horas</a></li>
-            <li><a href="{{url('HoraExtras/create')}}"><i class="fa fa-circle-o"></i> Crear Hora extras</a></li>
-            <li><a href="{{url('HoraExtras/')}}"><i class="fa fa-circle-o"></i> Consultar Horas Extras</a></li>
-            <li><a href="{{url('TipoNovedad/create')}}"><i class="fa fa-circle-o"></i> Crear Tipo Novedad</a></li>
-            <li><a href="{{url('TipoNovedad/')}}"><i class="fa fa-circle-o"></i> Consultar Tpo Novedad</a></li>
-            <li><a href="{{url('Novedades/create')}}"><i class="fa fa-circle-o"></i> Crear Novedad</a></li>
-            <li><a href="{{url('Novedades/')}}"><i class="fa fa-circle-o"></i> Consultar Novedad</a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Gestion Tiendas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('Tiendas/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Tienda</a></li>
+            <li><a href="{{url('Tiendas/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Tienda</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+            <span>Gestion Empleados</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('Empleados/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Empleados</a></li>
+            <li><a href="{{url('Empleados/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Empleados</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Gestion de ingresos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('Ingresos/create')}}"><i class="fa fa-circle-o text-red"></i>Crear Ingresos</a></li>
+            <li><a href="{{url('Ingresos/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Ingresos</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i>
+            <span>Gestion de Retiros</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('Retiros/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Retiros</a></li>
+            <li><a href="{{url('Retiros/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Retiros</a></li>
+          </ul>
+        </li>   
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i>
+            <span>Gestion de Horas Extras</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('TipoHoras/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Tipo Hora</a></li>
+            <li><a href="{{url('TipoHoras/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Tipo de Horas</a></li>
+            <li><a href="{{url('HoraExtras/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Hora extras</a></li>
+            <li><a href="{{url('HoraExtras/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Horas Extras</a></li>
+          </ul>
+        </li> 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Gestion de Novedades</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+                   
+            <li><a href="{{url('TipoNovedad/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Tipo Novedad</a></li>
+            <li><a href="{{url('TipoNovedad/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Tpo Novedad</a></li>
+            <li><a href="{{url('Novedades/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Novedad</a></li>
+            <li><a href="{{url('Novedades/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Novedad</a></li>
+          </ul>
+        </li> 
+            
+            
+           
+    
         </li>   
       </ul>
     </section>
