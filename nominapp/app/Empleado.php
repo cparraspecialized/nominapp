@@ -27,4 +27,8 @@ class Empleado extends Model
    protected $guarded=[
 
    ];
+   public function Ingreso(){
+    return $this->belongsTo(Ingreso::class,'cedula');
+    }
+
 }

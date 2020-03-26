@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('Tiendas', 'TiendaController');
 Route::resource('Empleados', 'EmpleadoController');
+Route::resource('Ingresos', 'IngresoController');
