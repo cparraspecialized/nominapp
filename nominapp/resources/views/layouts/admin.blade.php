@@ -225,6 +225,10 @@
             <li><a href="{{url('Ingresos/')}}"><i class="fa fa-circle-o"></i> Consultar Ingresos</a></li>
             <li><a href="{{url('Retiros/create')}}"><i class="fa fa-circle-o"></i> Crear Retiros</a></li>
             <li><a href="{{url('Retiros/')}}"><i class="fa fa-circle-o"></i> Consultar Retiros</a></li>
+            <li><a href="{{url('TipoHoras/create')}}"><i class="fa fa-circle-o"></i> Crear Tipo Hora</a></li>
+            <li><a href="{{url('TipoHoras/')}}"><i class="fa fa-circle-o"></i> Consultar Tipo de Horas</a></li>
+            <li><a href="{{url('HoraExtras/create')}}"><i class="fa fa-circle-o"></i> Crear Hora extras</a></li>
+            <li><a href="{{url('HoraExtras/')}}"><i class="fa fa-circle-o"></i> Consultar Horas Extras</a></li>
         </li>   
       </ul>
     </section>

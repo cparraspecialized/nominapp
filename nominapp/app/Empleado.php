@@ -33,6 +33,10 @@ class Empleado extends Model
 
     public function Retiro(){
         return $this->belongsTo(Retiro::class,'cedula');
-        }
+    }
+
+    public function HoraExtra(){
+        return $this->belongsTo(HoraExtra::class,'cedula');
+    }
 
 }
