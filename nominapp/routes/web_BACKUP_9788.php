@@ -23,7 +23,10 @@ Route::resource('Tiendas', 'TiendaController');
 Route::resource('Empleados', 'EmpleadoController');
 Route::resource('Ingresos', 'IngresoController');
 Route::resource('Retiros', 'RetiroController');
+<<<<<<< HEAD
 Route::resource('TipoNovedad', 'TipoNovedadController');
 Route::resource('Novedades', 'NovedadController');
+=======
 Route::resource('TipoHoras', 'TipoHoraController');
 Route::resource('HoraExtras', 'HoraExtraController');
+>>>>>>> da32cb7c262b430641c081ec76238d799d741586

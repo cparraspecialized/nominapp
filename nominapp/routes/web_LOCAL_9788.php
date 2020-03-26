@@ -25,5 +25,3 @@ Route::resource('Ingresos', 'IngresoController');
 Route::resource('Retiros', 'RetiroController');
 Route::resource('TipoNovedad', 'TipoNovedadController');
 Route::resource('Novedades', 'NovedadController');
-Route::resource('TipoHoras', 'TipoHoraController');
-Route::resource('HoraExtras', 'HoraExtraController');
