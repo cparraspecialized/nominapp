@@ -21,14 +21,15 @@
                 </thead>
                 @foreach ($horasextras as $hoext)
                 <tr>
-                    <td>{{$hoext->fkidTipoHora}}</td>
+                    <td>{{$hoext->TipoHora['descripcionTipo']}}</td>
                     <td>{{$hoext->fkcedulaEmpleado}}</td>
                     <td>{{$hoext->horasExtra}}</td>
                     <td>{{$hoext->fechaHorasExtra}}</td>
-                    <td>{{$hoext->fkidUsuario}}</td>
+                    <td>{{$hoext->users['name']}}</td>
                 </tr>
                 @endforeach
             </table>
+            {{ $horasextras->render() }} 
         </div>
     </div>
 </div>

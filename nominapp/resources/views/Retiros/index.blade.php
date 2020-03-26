@@ -23,10 +23,11 @@
                     <td>{{$ret->fkcedulaEmpleado}}</td>
                     <td>{{$ret->descripcionIngreso}}</td>
                     <td>{{$ret->fechaRetiro}}</td>
-                    <td>{{$ret->fkidUsuario}}</td>
+                    <td>{{$ret->users['name']}}</td>
                 </tr>
                 @endforeach
             </table>
+            {{ $retiros->render() }} 
         </div>
     </div>
 </div>

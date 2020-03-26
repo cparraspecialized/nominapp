@@ -23,9 +23,9 @@ class RetiroController extends Controller
 
     public function index(Request $request){
 
-        $retiros = DB::table('retiro')->get();
+        $retiros =Retiro::orderBy('id','desc')->paginate(10);
 
-        return view('Retiros.index', ['retiros' => $retiros]);
+        return view('Retiros.index', compact('retiros'));
     }
 
     public function store(Request $request){

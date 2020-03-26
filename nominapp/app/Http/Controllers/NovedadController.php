@@ -21,16 +21,13 @@ class NovedadController extends Controller
         $empleados= Empleado::pluck('cedula','cedula');
 
         return view('Novedades.create',compact('tnovedades','empleados'));
-
-
-
     }
 
     public function index(Request $request){
 
-        $novedades = DB::table('novedades')->get();
+        $novedades =Novedad::orderBy('id','desc')->paginate(10);
 
-        return view('Novedades.index', ['novedades' => $novedades]);
+        return view('Novedades.index', compact('novedades'));
     }
 
     public function store(Request $request){

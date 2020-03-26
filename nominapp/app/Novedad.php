@@ -29,11 +29,11 @@ class Novedad extends Model
     ];
  
     //Una TIENDA tiene un MUNICPIO
-    public function TipoNovedades(){
-        return $this->belongsTo(TipoNovedades::class,'fktipoNovedad');
+    public function TipoNovedad(){
+        return $this->belongsTo(TipoNovedad::class,'fktipoNovedad');
      }
 
-    public function User(){
+     public function users(){
         return $this->belongsTo(User::class,'fkidUsuario');
     }
 }

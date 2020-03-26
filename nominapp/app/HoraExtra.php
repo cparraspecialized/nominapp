@@ -33,4 +33,8 @@ class HoraExtra extends Model
     public function Empleado(){
         return $this->belongsTo(Empleado::class,'fkcedulaEmpleado');
     }
+
+    public function users(){
+        return $this->belongsTo(User::class,'fkidUsuario');
+    }
 }

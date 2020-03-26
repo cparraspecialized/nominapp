@@ -33,9 +33,9 @@ class HoraExtraController extends Controller
 
     public function index(Request $request){
 
-        $horasextras = DB::table('hora_extras')->get();
+        $horasextras =HoraExtra::orderBy('id','desc')->paginate(10);
 
-        return view('HoraExtras.index', ['horasextras' => $horasextras]);
+        return view('HoraExtras.index', compact('horasextras'));
     }
 
     public function store(Request $request){

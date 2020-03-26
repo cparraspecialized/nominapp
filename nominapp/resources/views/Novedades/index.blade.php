@@ -21,12 +21,13 @@
                 @foreach ($novedades as $nov)
                 <tr>
                     <td>{{$nov->fkcedulaEmpleado}}</td>
-                    <td>{{$nov->fktipoNovedad}}</td>
+                    <td>{{$nov->TipoNovedad['descripcionTipoNovedad']}}</td>
                     <td>{{$nov->fechaNovedad}}</td>
-                    <td>{{$nov->fkidUsuario}}</td>
+                    <td>{{$nov->users['name']}}</td>
                 </tr>
                 @endforeach
             </table>
+            {{ $novedades->render() }} 
         </div>
     </div>
 </div>

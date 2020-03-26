@@ -24,5 +24,7 @@ class TipoNovedad extends Model
    protected $guarded=[
 
    ];
-
+    public function Novedad(){
+        return $this->hasMany(Novedad::class);
+        }
 }
