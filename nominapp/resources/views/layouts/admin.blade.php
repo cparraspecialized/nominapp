@@ -343,7 +343,7 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
-        <div class="box-body">
+        <div class="form-group">
           @yield('content')
 
           {!! Html::script('js/jQuery-2.1.4.min.js')!!}
