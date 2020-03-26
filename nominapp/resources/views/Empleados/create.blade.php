@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
         <h4> <label for="fkidTienda">Tienda del Empleado:</label></h4>
-    <h4>   {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda'],['class' => 'form-control'])!!}</h4>
+         <h4>{!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda'],['class' => 'form-control'])!!}</h4>
         </div>
         <div class="form-group">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>

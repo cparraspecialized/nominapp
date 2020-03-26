@@ -278,9 +278,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('TipoHoras/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Tipo Hora</a></li>
+            <li><a href="{{url('TipoHoras/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Tipo Hora Extra</a></li>
             <li><a href="{{url('TipoHoras/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Tipo de Horas</a></li>
-            <li><a href="{{url('HoraExtras/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Hora extras</a></li>
+            <li><a href="{{url('HoraExtras/create')}}"><i class="fa fa-circle-o text-red"></i> Generar Horas extras</a></li>
             <li><a href="{{url('HoraExtras/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Horas Extras</a></li>
           </ul>
         </li> 
@@ -296,8 +296,8 @@
                    
             <li><a href="{{url('TipoNovedad/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Tipo Novedad</a></li>
             <li><a href="{{url('TipoNovedad/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Tpo Novedad</a></li>
-            <li><a href="{{url('Novedades/create')}}"><i class="fa fa-circle-o text-red"></i> Crear Novedad</a></li>
-            <li><a href="{{url('Novedades/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Novedad</a></li>
+            <li><a href="{{url('Novedades/create')}}"><i class="fa fa-circle-o text-red"></i> Generar Novedad</a></li>
+            <li><a href="{{url('Novedades/')}}"><i class="fa fa-circle-o text-red"></i> Consultar Novedades</a></li>
           </ul>
         </li> 
             
