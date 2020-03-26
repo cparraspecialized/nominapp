@@ -2,7 +2,7 @@
 @section ('content')
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3>Crear un Ingreso de un empleado</h3>
+            <h3>Crear Hora extra para empleado</h3>
            
         {!!Form::open(array('url'=>'HoraExtras','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
         {{Form::token()}}

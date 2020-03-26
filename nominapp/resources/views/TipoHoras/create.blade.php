@@ -2,7 +2,7 @@
 @section ('content')
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3>Crear un Retiro de un empleado</h3>
+            <h3>Crear un tipo de hora</h3>
            
         {!!Form::open(array('url'=>'TipoHoras','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
         {{Form::token()}}        
