@@ -27,4 +27,13 @@ class Empleado extends Model
    protected $guarded=[
 
    ];
+
+  
+
+
+
+
+   public function Retiro(){
+    return $this->hasMany(Retiro::class,'cedula');
+    }
 }
