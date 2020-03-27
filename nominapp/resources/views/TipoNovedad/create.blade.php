@@ -8,7 +8,7 @@
         {{Form::token()}}
         <h4><div class="form-group">
             <label for="descripcionTipoNovedad">Descripcion Novedad:</label>
-            <input type="text" name="descripcionTipoNovedad" class="form-control" placeholder="Descripcion Retiro">
+            <input type="text" name="descripcionTipoNovedad" class="form-control" placeholder="Descripcion tipo novedad">
         </div>
 
         <div class="form-group">
