@@ -28,3 +28,4 @@ Route::resource('Novedades', 'NovedadController');
 Route::resource('TipoHoras', 'TipoHoraController');
 Route::resource('HoraExtras', 'HoraExtraController');
 Route::resource('TipoContratos', 'TipoContratoController');
+Route::resource('TipoRetiros', 'TipoRetiroController');
