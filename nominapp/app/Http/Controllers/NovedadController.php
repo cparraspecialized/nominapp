@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 use App\TipoNovedad;
 use App\Novedad;
 use App\Empleado;
@@ -36,7 +37,7 @@ class NovedadController extends Controller
         $novedad=new Novedad;
         $novedad->fkcedulaEmpleado=$request->get('fkcedulaEmpleado');
         $novedad->fechaNovedad=$request->get('fechaNovedad');
-        $novedad->fkidUsuario==auth()->user()->id;
+        $novedad->fkidUsuario=auth()->user()->id;
         $novedad->fktipoNovedad=$request->get('fktipoNovedad');
         $novedad->save();
         

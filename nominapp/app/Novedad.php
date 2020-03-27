@@ -33,7 +33,7 @@ class Novedad extends Model
         return $this->belongsTo(TipoNovedad::class,'fktipoNovedad');
      }
 
-     public function users(){
+    public function users(){
         return $this->belongsTo(User::class,'fkidUsuario');
     }
 }

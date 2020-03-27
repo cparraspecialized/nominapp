@@ -2,11 +2,8 @@
 @section ('content')
     <div class="form-group">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<<<<<<< HEAD
+
             <h3>Crear Hora extra para empleado</h3>
-=======
-            <h3>CGenerar Hora Extra</h3>
->>>>>>> b81dce89ccb2d9e17ff36d5984177360205d4fde
            
         {!!Form::open(array('url'=>'HoraExtras','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
         {{Form::token()}}
