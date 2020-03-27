@@ -19,9 +19,9 @@ class TipoHoraController extends Controller
 
     public function index(Request $request){
 
-        $tipohoras = DB::table('tipohoras')->get();
+        $tipohoras =TipoHora::orderBy('id','desc')->paginate(10);
 
-        return view('TipoHoras.index', ['tipohoras' => $tipohoras]);
+        return view('TipoHoras.index', compact('tipohoras'));
     }
 
     public function store(Request $request){
