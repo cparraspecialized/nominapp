@@ -129,7 +129,31 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Consultar Empleados</p>
                 </a>
-              </li>              
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoRetiros/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Retiro</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoRetiros/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Retiro</p>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a href="{{url('TipoContratos/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Contrato</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoContratos/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Contrato</p>
+                </a>
+              </li>                                        
             </ul>
           </li>
           <li class="nav-item has-treeview">
