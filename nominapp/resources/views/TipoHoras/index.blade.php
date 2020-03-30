@@ -28,6 +28,7 @@
                         </tr>
                         @endforeach
                     </table>
+                    {{ $tiendas->render() }} 
                 </div></h4>
             </div>
         </div>

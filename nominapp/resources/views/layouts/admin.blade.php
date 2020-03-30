@@ -88,7 +88,7 @@
             
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Gestion Tiendas
                 <i class="right fas fa-angle-left"></i>
@@ -111,7 +111,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Gestion Empleados
                 <i class="right fas fa-angle-left"></i>
@@ -133,32 +133,44 @@
               <li class="nav-item">
                 <a href="{{url('TipoRetiros/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Retiro</p>
+                  <p>Crear Motivo de Retiro</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('TipoRetiros/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Retiro</p>
+                  <p>Consultar Motivos Retiro</p>
                 </a>
               </li> 
               <li class="nav-item">
                 <a href="{{url('TipoContratos/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Contrato</p>
+                  <p>Crear Tipos de Contrato</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('TipoContratos/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Contrato</p>
+                  <p>Consultar Tipos de Contrato</p>
                 </a>
-              </li>                                        
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoCargos/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Cargos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoContratos/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Cargos</p>
+                </a>
+              </li>                                             
             </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Gestion Horas Extras
                 <i class="right fas fa-angle-left"></i>

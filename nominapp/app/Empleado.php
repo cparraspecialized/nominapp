@@ -21,7 +21,15 @@ class Empleado extends Model
        'fkidTienda',
        'estadoEmpleado',
        'created_at',
-       'updated_at'
+       'updated_at',
+       'fechaIngresoEmpleado',
+       'fkidTipoContrato',
+       'fkidTipoCargo',
+       'sueldoEmpleado',
+       'fechaRetiroEmpleado',
+       'fkidTipoRetiro',
+       'fkidUsuario',
+
    ];
 
    protected $guarded=[
@@ -41,6 +49,23 @@ class Empleado extends Model
 
     public function tiendas(){
         return $this->belongsTo(Tienda::class,'fkidTienda');
+    }
+
+    public function tipocargo(){
+        return $this->belongsTo(TipoCargo::class,'fkidTipoCargo');
+    }
+
+    public function tipocontrato(){
+        return $this->belongsTo(TipoContrato::class,'fkidTipoContrato');
+    }
+
+    public function tiporetiro(){
+        return $this->belongsTo(TipoRetiro::class,'fkidTipoRetiro');
+    }
+
+    
+    public function users(){
+        return $this->belongsTo(User::class,'fkidUsuario');
     }
 
 }
