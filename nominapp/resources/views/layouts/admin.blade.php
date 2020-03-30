@@ -133,25 +133,37 @@
               <li class="nav-item">
                 <a href="{{url('TipoRetiros/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Retiro</p>
+                  <p>Crear Tipo Retiro</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('TipoRetiros/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Retiro</p>
+                  <p>Consultar Tipo Retiro</p>
                 </a>
               </li> 
               <li class="nav-item">
                 <a href="{{url('TipoContratos/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Contrato</p>
+                  <p>Crear Tipo Contrato</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('TipoContratos/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Contrato</p>
+                  <p>Consultar Tipo Contrato</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoCargos/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Tipo Cargo</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoCargos/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Tipo Cargo</p>
                 </a>
               </li>                                        
             </ul>
