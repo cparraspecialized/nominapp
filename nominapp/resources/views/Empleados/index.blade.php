@@ -33,6 +33,8 @@
                     <th>Fecha de Retiro</th>
                     <th>Motivo de Retiro</th>
                     <th>Usuario que modifico</th>
+                    <th>Retirar/Ingresar</th>
+                    <th>Editar Información</th>
 
                 </thead>
                 @foreach ($empleados as $emp)
@@ -49,6 +51,13 @@
                     <td>{{$emp->fechaRetiroEmpleado}}</td>
                     <td>{{$emp->tiporetiro['descripcionTipoRetiro']}}</td>
                     <td>{{$emp->users['name']}}</td>
+                    @if ($emp->estadoEmpleado == 'ACTIVO')
+                    <td><a href="{{route('status',['id' => $emp->cedula])}}"><button class="btn btn-outline-danger">Retirar</button></td>
+                    @endif
+                    @if ($emp->estadoEmpleado == 'INACTIVO')
+                    <td><a href="{{route('status',['id' => $emp->cedula])}}"><button class="btn btn-outline-success">Ingresar</button></td>
+                    @endif
+                    <td><a href="{{route('editempleado',['id' => $emp->cedula])}}"><button class="btn btn-outline-primary">Editar</button></td>
                 </tr>
                 @endforeach
             </table>
