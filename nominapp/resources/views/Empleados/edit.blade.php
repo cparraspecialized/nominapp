@@ -1,7 +1,8 @@
 @extends ('layouts.admin')
 @section ('content')
-{!!Form::model($empleado,['method'=>'PATH','route'=>['updateempleado',$empleado->cedula]])!!}
-      {{Form::token()}}
+    {!!Form::model($empleado,['route'=>['Empleados.update',$empleado->cedula],
+    'method'=>'PUT'])!!}
+
       <div class="col-lg-12 col-sm-12 form-group">
         <div class="card card-primary card-outline">
           <div class="card-header">

@@ -60,6 +60,39 @@ class EmpleadoController extends Controller
 
     }
 
+    public function edit($id){
+
+        $tiporetiro= TipoRetiro::pluck('descripcionTipoRetiro','id');
+        $tiendas= Tienda::pluck('nombreTienda','id');
+        $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
+        $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
+     
+        return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo'));
+
+    }
+
+
+    public function update(Request $request, $id){
+
+        
+            $empleado =Empleado::findOrFail($id);
+            $empleado->nombreEmpleado=$request->get('nombreEmpleado');
+            $empleado->apellidoEmpleado=$request->get('apellidoEmpleado');
+            $empleado->fkidTienda=$request->get('fkidTienda');
+            $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
+            $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
+            $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
+            $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
+            $empleado->fechaRetiroEmpleado=null;
+            $empleado->fkidTipoRetiro=null;
+            $empleado->fkidUsuario=auth()->user()->id;   
+            $empleado->update();
+            
+            return Redirect::to('Empleados'); 
+
+      
+    }
+
     public function status($id){
 
         $tiporetiro= TipoRetiro::pluck('descripcionTipoRetiro','id');
@@ -102,57 +135,17 @@ class EmpleadoController extends Controller
 
     public function show($id){
 
-        return view("Empleados.changestatus",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro'));
-    }
-
-    public function editEmpleado($id){
-
         $tiporetiro= TipoRetiro::pluck('descripcionTipoRetiro','id');
         $tiendas= Tienda::pluck('nombreTienda','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
 
-        return view("Empleados.editempleado",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo'));
+        return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo'));
 
+       // return view("Empleados.changestatus",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro'));
     }
 
-    public function updateEmpleado(Request $request){
-        
-        $empleado =Empleado::findOrFail($request->get('cedula'));
-        
-        if($empleado->estadoEmpleado=='ACTIVO'){
-
-            $empleado =Empleado::findOrFail($request->get('cedula'));
-            $empleado->nombreEmpleado=$request->get('nombreEmpleado');
-            $empleado->apellidoEmpleado=$request->get('apellidoEmpleado');
-            $empleado->fkidTienda=$request->get('fkidTienda');
-            $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
-            $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
-            $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
-            $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
-            $empleado->fechaRetiroEmpleado=null;
-            $empleado->fkidTipoRetiro=null;
-            $empleado->fkidUsuario=auth()->user()->id;   
-            $empleado->update();
-            return Redirect::to('Empleados'); 
-
-        }else{
-
-            $empleado =Empleado::findOrFail($request->get('cedula'));
-            $empleado->nombreEmpleado=$request->get('nombreEmpleado');
-            $empleado->apellidoEmpleado=$request->get('apellidoEmpleado');
-            $empleado->fkidTienda=$request->get('fkidTienda');
-            $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
-            $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
-            $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
-            $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
-            $empleado->fkidUsuario=auth()->user()->id;   
-            $empleado->update();
-            return Redirect::to('Empleados'); 
-
-        }
-
-        return Redirect::to('Empleados');
-    }
+   
+    
 
 }

@@ -29,10 +29,11 @@ Route::resource('TipoContratos', 'TipoContratoController');
 Route::resource('TipoRetiros', 'TipoRetiroController');
 Route::resource('TipoCargos', 'TipoCargoController');
 
+
 Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status');
 Route::post('Empleados/changestatus/', 'EmpleadoController@changeStatus')->name('changestatus');
-Route::get('Empleados/editEmpleado/{id}', 'EmpleadoController@editEmpleado')->name('editempleado');
-Route::post('Empleados/updateEmpleado/', 'EmpleadoController@updateEmpleado')->name('updateempleado');
+Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado');
+
 
 
 

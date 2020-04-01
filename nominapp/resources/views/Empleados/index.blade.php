@@ -57,7 +57,7 @@
                     @if ($emp->estadoEmpleado == 'INACTIVO')
                     <td><a href="{{route('status',['id' => $emp->cedula])}}"><button class="btn btn-outline-success">Ingresar</button></td>
                     @endif
-                    <td><a href="{{route('editempleado',['id' => $emp->cedula])}}"><button class="btn btn-outline-primary">Editar</button></td>
+                    <td><a href="{{route('Empleados.edit', $emp->cedula)}}"><button class="btn btn-outline-primary">Editar</button></td>
                 </tr>
                 @endforeach
             </table>
