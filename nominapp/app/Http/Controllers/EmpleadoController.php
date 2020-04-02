@@ -10,6 +10,8 @@ use App\TipoCargo;
 use App\TipoContrato;
 use App\TipoRetiro;
 use App\Http\Requests\storeEmpleadoRequest;
+use Carbon\Carbon;
+use App\Exports\EmpleadoExport;
 use DB;
 
 class EmpleadoController extends Controller
@@ -24,19 +26,29 @@ class EmpleadoController extends Controller
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
 
-
-        return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato'));
-
-        $tiendas = Tienda::pluck('nombreTienda');
         return View('Empleados.index', compact('tiendas'));
+        return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato'));
 
     }
 
     public function index(Request $request){
 
-        $empleados =Empleado::orderBy('created_at','desc')->paginate(10);
+        if($request){
+
+        $cedula=trim($request->get('cedula'));
+        $nombreEmpleado=trim($request->get('nombreEmpleado'));
+        $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+        $fkidTienda=trim($request->get('fkidTienda'));
+        $empleados =Empleado::orderBy('created_at','desc')
+        ->where('cedula','like','%'.$cedula.'%')
+        ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
+        ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+        ->where('fkidTienda','like','%'.$fkidTienda.'%')
+        ->paginate(8);
 
         return view('Empleados.index', compact('empleados'));
+
+        }
     }
 
     public function store(storeEmpleadoRequest $request){
@@ -74,6 +86,10 @@ class EmpleadoController extends Controller
 
     public function update(Request $request, $id){
 
+        $empleado =Empleado::findOrFail($id);
+
+        if($empleado->estadoEmpleado=='ACTIVO'){
+
         
             $empleado =Empleado::findOrFail($id);
             $empleado->nombreEmpleado=$request->get('nombreEmpleado');
@@ -83,12 +99,24 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
-            $empleado->fechaRetiroEmpleado=null;
-            $empleado->fkidTipoRetiro=null;
             $empleado->fkidUsuario=auth()->user()->id;   
             $empleado->update();
             
             return Redirect::to('Empleados'); 
+        }else{
+
+            
+            $empleado =Empleado::findOrFail($id);
+            $empleado->nombreEmpleado=$request->get('nombreEmpleado');
+            $empleado->apellidoEmpleado=$request->get('apellidoEmpleado');
+            $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
+            $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
+            $empleado->fkidUsuario=auth()->user()->id;   
+            $empleado->update();
+
+        }
+        return Redirect::to('Empleados'); 
+
 
       
     }
@@ -141,9 +169,26 @@ class EmpleadoController extends Controller
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
 
         return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo'));
-
-       // return view("Empleados.changestatus",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro'));
     }
+
+    public function export(Request $request){
+
+        $cedula=trim($request->get('cedula'));
+        $nombreEmpleado=trim($request->get('nombreEmpleado'));
+        $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+        $fkidTienda=trim($request->get('fkidTienda'));
+        $empleados =Empleado::orderBy('created_at','desc')
+        ->where('cedula','like','%'.$cedula.'%')
+        ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
+        ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+        ->where('fkidTienda','like','%'.$fkidTienda.'%')
+        ->get();
+
+        return (new EmpleadoExport($empleados))->download('Empleados.xlsx');
+
+
+   
+}
 
    
     

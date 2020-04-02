@@ -22,6 +22,7 @@
                 <label for="apellidoEmpleado" ><p class="font-weight-normal">Apellidos </p></label>
                 <input type="text" name="apellidoEmpleado" class="form-control" value="{{$empleado->apellidoEmpleado}}" placeholder="Apellido del empleado">
             </div>
+            @if ($empleado->estadoEmpleado == 'ACTIVO')
             <div class="col-sm-6 form-group">
               <label for="fkidTienda"  ><p class="font-weight-normal">Tienda </p></label>
               {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda','value'=>'{{$empleado->fkidTienda}}','class' => 'form-control'])!!}
@@ -42,6 +43,17 @@
               <label for="sueldoEmpleado"  ><p class="font-weight-normal">Salario </p></label>
               <input type="text" name="sueldoEmpleado" class="form-control" value="{{$empleado->sueldoEmpleado}}"  placeholder="Salario del empleado">
             </div>
+            @endif
+            @if ($empleado->estadoEmpleado == 'INACTIVO')
+            <div class="col-sm-6 form-group">
+              <label for="fkidTipoRetiro" ><p class="font-weight-normal">Motivo de Retiro </p></label>
+              {!! Form::select('fkidTipoRetiro',$tiporetiro,null,['id'=>'fkidTipoRetiro', 'placeholder'=>'Seleccione Motivo de Retiro','class' => 'form-control'])!!}
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="fechaRetiroEmpleado"><p class="font-weight-normal">Fecha de retiro </p></label>
+              <input type="date" name="fechaRetiroEmpleado" class="form-control" value="{{$empleado->fechaRetiroEmpleado}}" placeholder="fechaRetiroEmpleado">
+            </div>
+            @endif
             </div>
            
             <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
