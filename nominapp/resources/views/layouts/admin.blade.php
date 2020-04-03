@@ -78,6 +78,14 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a class="brand-text font-weight-light" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Cerrar Sesión') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      @csrf
+                                  </form>
         </div>
       </div>
 
@@ -87,89 +95,67 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
          
-            
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Gestion Tiendas
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('Tiendas/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Tienda</p>
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-plus-square"></i>
+                  <p>
+                    Gestion Empleados
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('Tiendas/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Tiendas</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Gestion Empleados
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('Empleados/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Empleado</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('Empleados/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Empleados</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoRetiros/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Motivo de Retiro</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoRetiros/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Motivos Retiro</p>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a href="{{url('TipoContratos/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Tipos de Contrato</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoContratos/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Tipos de Contrato</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoCargos/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Cargos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoContratos/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Cargos</p>
-                </a>
-              </li>                                             
-            </ul>
-          </li>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('Empleados/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Empleado</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('Empleados/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Empleados</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoRetiros/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Motivo de Retiro</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoRetiros/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Motivos Retiro</p>
+                    </a>
+                  </li> 
+                  <li class="nav-item">
+                    <a href="{{url('TipoContratos/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Tipos de Contrato</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoContratos/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Tipos de Contrato</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoCargos/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Cargos</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoContratos/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Cargos</p>
+                    </a>
+                  </li>                                             
+                </ul>
+              </li>  
+         
+         
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -240,6 +226,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Gestion Tiendas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('Tiendas/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Tienda</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('Tiendas/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Tiendas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -269,8 +278,65 @@
 
     <!-- Main content -->
     <section class="content">
+      @if (session('status'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="alert alert-success alert-dismissible text-center">
+                                <button  class="close" data-dismiss="alert" aria-label="close">&times</button>
+                            <strong> {{ session('status') }}</strong> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              @endif
+              @if (session('info'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="alert alert-success alert-dismissible text-center">
+                                <button  class="close" data-dismiss="alert" aria-label="close">&times</button>
+                            <strong> {{ session('info') }}</strong> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              @endif
+              @if (session('error'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="alert alert-danger alert-dismissible text-center">
+                                <button  class="close" data-dismiss="alert" aria-label="close">&times</button>
+                            <strong> {{ session('error') }}</strong> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              @endif
+  
+              @if (count($errors))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="alert alert-danger alert-dismissable text-center ">
+                            <button  class="close" data-dismiss="alert" aria-label="close">&times</button>
+
+                            <ul class="list-unstyled">
+                                @foreach ($errors->all() as $error )
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              @endif
       <div class="container-fluid">
-		 @yield('content')
+
+
+          
+          @yield('content')
 
           {!! Html::script('js/jQuery-2.1.4.min.js')!!}
           {!! Html::script('js/dropdown.js')!!}

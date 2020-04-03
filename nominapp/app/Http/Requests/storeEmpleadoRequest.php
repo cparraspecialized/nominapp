@@ -21,6 +21,14 @@ class storeEmpleadoRequest extends FormRequest
      *
      * @return array
      */
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'A title is required',
+            'sueldoEmpleado'  => 'Solo se aceptan números',
+        ];
+    }
     public function rules()
     {
         return [
@@ -31,8 +39,10 @@ class storeEmpleadoRequest extends FormRequest
             'fechaIngresoEmpleado' => 'required|max:300',
             'fkidTipoContrato' => 'required|max:300',
             'fkidTipoCargo' => 'required|max:300',
-            'sueldoEmpleado' => 'required|max:300',
+            'sueldoEmpleado' => 'integer|required|max:300',
 
         ];
     }
+
+
 }

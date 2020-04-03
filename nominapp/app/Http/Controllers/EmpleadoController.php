@@ -12,6 +12,7 @@ use App\TipoRetiro;
 use App\Http\Requests\storeEmpleadoRequest;
 use Carbon\Carbon;
 use App\Exports\EmpleadoExport;
+use Exception;
 use DB;
 
 class EmpleadoController extends Controller
@@ -26,7 +27,6 @@ class EmpleadoController extends Controller
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
 
-        return View('Empleados.index', compact('tiendas'));
         return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato'));
 
     }
@@ -53,22 +53,39 @@ class EmpleadoController extends Controller
 
     public function store(storeEmpleadoRequest $request){
 
-        $empleado=new Empleado;
-        $empleado->cedula=$request->get('cedula');
-        $empleado->nombreEmpleado=$request->get('nombreEmpleado');
-        $empleado->apellidoEmpleado=$request->get('apellidoEmpleado');
-        $empleado->fkidTienda=$request->get('fkidTienda');
-        $empleado->estadoEmpleado=('ACTIVO');
-        $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
-        $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
-        $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
-        $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
-        $empleado->fechaRetiroEmpleado=null;
-        $empleado->fkidTipoRetiro=null;
-        $empleado->fkidUsuario=auth()->user()->id;    
-        $empleado->save();
+       try {
 
-        return Redirect::to('Empleados');
+            DB::BeginTransaction();
+            $empleado=new Empleado;
+            $empleado->cedula=$request->get('cedula');
+            $empleado->nombreEmpleado=$request->get('nombreEmpleado');
+            $empleado->apellidoEmpleado=$request->get('apellidoEmpleado');
+            $empleado->fkidTienda=$request->get('fkidTienda');
+            $empleado->estadoEmpleado=('ACTIVO');
+            $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
+            $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
+            $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
+            $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
+            $empleado->fechaRetiroEmpleado=null;
+            $empleado->fkidTipoRetiro=null;
+            $empleado->fkidUsuario=auth()->user()->id;  
+
+            if ($empleado->save()) {
+                DB::commit();
+                return redirect()->route('Empleados.index')->with('info','Empleado creado con exito'); 
+            }
+
+       } catch (Exception $e) {
+            DB::rollback();
+            $msg = $e->getMessage();
+            return back()->with('error', 'Error al crear el Empleado ya Existe');
+
+       }
+
+          
+       
+         
+        
 
     }
 

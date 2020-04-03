@@ -19,21 +19,21 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('Tiendas', 'TiendaController');
-Route::resource('Empleados', 'EmpleadoController');
-Route::resource('TipoNovedad', 'TipoNovedadController');
-Route::resource('Novedades', 'NovedadController');
-Route::resource('TipoHoras', 'TipoHoraController');
-Route::resource('HoraExtras', 'HoraExtraController');
-Route::resource('TipoContratos', 'TipoContratoController');
-Route::resource('TipoRetiros', 'TipoRetiroController');
-Route::resource('TipoCargos', 'TipoCargoController');
+Route::resource('Tiendas', 'TiendaController')->middleware('auth');
+Route::resource('Empleados', 'EmpleadoController')->middleware('auth');
+Route::resource('TipoNovedad', 'TipoNovedadController')->middleware('auth');
+Route::resource('Novedades', 'NovedadController')->middleware('auth');
+Route::resource('TipoHoras', 'TipoHoraController')->middleware('auth');
+Route::resource('HoraExtras', 'HoraExtraController')->middleware('auth');
+Route::resource('TipoContratos', 'TipoContratoController')->middleware('auth');
+Route::resource('TipoRetiros', 'TipoRetiroController')->middleware('auth');
+Route::resource('TipoCargos', 'TipoCargoController')->middleware('auth');
 
 
 Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status');
 Route::post('Empleados/changestatus/', 'EmpleadoController@changeStatus')->name('changestatus');
 Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado');
-Route::get('ExportEmpleados', 'EmpleadoController@export');
+Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 
 
 

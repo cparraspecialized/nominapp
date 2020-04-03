@@ -18,12 +18,13 @@
             <div class="col-sm-3 form-group">
               {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
             </div>
-            
+            <div class="col-sm-6 form-group">
+              <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('EmpleadoController@export',['cedula','nombreEmpleado','apellidoEmpleado','fkidTienda'])}}">Exportar</a>
             </div>
-           
-            <button class="btn btn-primary btn-sm btn-block" type="submit">Buscar</button>
-            <a class="btn btn-primary form-control" href="{{URL::action('EmpleadoController@export',['cedula','nombreEmpleado','apellidoEmpleado','fkidTienda'])}}">Exportar</a>
-
+            <div class="col-sm-6 form-group">
+              <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
+            </div> 
+            </div>
 </div>
 
             
