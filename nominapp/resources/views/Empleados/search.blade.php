@@ -6,25 +6,25 @@
             <div class="form-row form-group col-sm-12">
               <div class="col-sm-3 form-group">
 
-                <input type="text" name="cedula" class="form-control" value="{{old('cedula')}}" placeholder="Cedula del empleado">
+                <input type="text" name="cedula" class="form-control" value="{{$cedula}}" placeholder="Cedula del empleado">
             </div>
               <div class="col-sm-3 form-group">
 
-                <input type="text" name="nombreEmpleado" class="form-control"  value="{{old('nombreEmpleado')}}" placeholder="Nombre del empleado">
+                <input type="text" name="nombreEmpleado" class="form-control"  value="{{$nombreEmpleado}}" placeholder="Nombre del empleado">
             </div>
             <div class="col-sm-3 form-group">
-            <input type="text" name="apellidoEmpleado" class="form-control" value="{{old('apellidoEmpleado')}}" placeholder="Apellido del empleado">
+            <input type="text" name="apellidoEmpleado" class="form-control" value="{{$apellidoEmpleado}}" placeholder="Apellido del empleado">
             </div>
             <div class="col-sm-3 form-group">
-              {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
+              {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'value'=>'{{$fkidTienda}}','placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-6 form-group">
-              <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('EmpleadoController@export',['cedula','nombreEmpleado','apellidoEmpleado','fkidTienda'])}}">Exportar</a>
+              <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('EmpleadoController@export',['cedula'=>$cedula,'nombreEmpleado'=>$nombreEmpleado,'apellidoEmpleado'=>$apellidoEmpleado,'fkidTienda'=>$fkidTienda])}}">Exportar</a>
             </div>
             <div class="col-sm-6 form-group">
               <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
             </div> 
-            </div>
+            </div>  
 </div>
 
             

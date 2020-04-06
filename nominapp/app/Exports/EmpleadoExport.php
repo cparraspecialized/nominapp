@@ -21,6 +21,7 @@ class EmpleadoExport implements FromCollection, WithHeadings
 
     protected $empleados;
 
+
     public function headings(): array
     {
         return [
@@ -42,29 +43,14 @@ class EmpleadoExport implements FromCollection, WithHeadings
     public function __construct($empleados = null)
     {
         $this->empleados = $empleados;
+
     }
 
 
     public function collection()
     {
-        return $this->empleados = DB::table('empleados')
-        ->join('tiendas','fkidTienda','=','tiendas.id')
-        ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
-        ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
-        ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
-        ->select(   'empleados.cedula',
-                    'empleados.nombreEmpleado',
-                    'empleados.apellidoEmpleado',
-                    'tiendas.nombreTienda',
-                    'empleados.fechaIngresoEmpleado',
-                    'tipocargo.descripcionTipoCargo',
-                    'tipocontrato.descripcionTipoContrato',
-                    'empleados.sueldoEmpleado',
-                    'empleados.estadoEmpleado',
-                    'empleados.fechaRetiroEmpleado',
-                    'tiporetiro.descripcionTipoRetiro'
-                    )
-        ->get();
+
+        return $this->empleados;
     }
 
     

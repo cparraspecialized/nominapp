@@ -12,35 +12,35 @@
             <div class="form-row form-group  col-sm-12">
               <div class="col-sm-4 form-group">
                 <label for="cedula"><p class="font-weight-normal">Cedula</p></label>
-                <input type="text" name="cedula" class="form-control" placeholder="Cedula del empleado">
+                <input type="text" name="cedula" class="form-control" required placeholder="Cedula del empleado">
             </div>
               <div class="col-sm-4 form-group">
                 <label for="nombreEmpleado" ><p class="font-weight-normal">Nombres </p></label>
-                <input type="text" name="nombreEmpleado" class="form-control" placeholder="Nombre del empleado">
+                <input type="text" name="nombreEmpleado" class="form-control" required placeholder="Nombre del empleado">
             </div>
             <div class="col-sm-4 form-group">
                 <label for="apellidoEmpleado" ><p class="font-weight-normal">Apellidos </p></label>
-                <input type="text" name="apellidoEmpleado" class="form-control" placeholder="Apellido del empleado">
+                <input type="text" name="apellidoEmpleado" class="form-control" required placeholder="Apellido del empleado">
             </div>
             <div class="col-sm-6 form-group">
               <label for="fkidTienda"  ><p class="font-weight-normal">Tienda </p></label>
-              {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
+              {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda','required=required', 'placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-6 form-group">
               <label for="fechaIngresoEmpleado"><p class="font-weight-normal">Fecha de ingreso </p></label>
-              <input type="date" name="fechaIngresoEmpleado" class="form-control" placeholder="fechaIngresoEmpleado">
+              <input type="date" name="fechaIngresoEmpleado" class="form-control"  required placeholder="fechaIngresoEmpleado">
             </div>
             <div class="col-sm-4 form-group">
               <label for="fkidTipoCargo"  ><p class="font-weight-normal">Cargo </p></label>
-              {!! Form::select('fkidTipoCargo',$tipocargo,null,['id'=>'fkidTipoCargo', 'placeholder'=>'Seleccione Cargo','class' => 'form-control'])!!}
+              {!! Form::select('fkidTipoCargo',$tipocargo,null,['id'=>'fkidTipoCargo', 'required','placeholder'=>'Seleccione Cargo','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-4 form-group">
               <label for="fkidTipoContrato"  ><p class="font-weight-normal">Contrato </p></label>
-              {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato', 'placeholder'=>'Seleccione Contrato','class' => 'form-control'])!!}
+              {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato','required', 'placeholder'=>'Seleccione Contrato','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-4 form-group">
               <label for="sueldoEmpleado"  ><p class="font-weight-normal">Salario </p></label>
-              <input type="text" name="sueldoEmpleado" class="form-control" placeholder="Salario del empleado">
+              <input type="number" name="sueldoEmpleado" class="form-control" required placeholder="Salario del empleado">
             </div>
             </div>
            
