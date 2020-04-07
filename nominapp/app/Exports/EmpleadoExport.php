@@ -30,6 +30,7 @@ class EmpleadoExport implements FromCollection, WithHeadings
             'Apellidos',
             'Tienda',
             'Fecha de Ingreso',
+            'Fecha fin de Contrato',
             'Cargo',
             'Contrato',
             'Salario',

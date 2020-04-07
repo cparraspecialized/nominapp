@@ -23,13 +23,17 @@
                 <input type="text" name="apellidoEmpleado" class="form-control" value="{{$empleado->apellidoEmpleado}}" placeholder="Apellido del empleado">
             </div>
             @if ($empleado->estadoEmpleado == 'ACTIVO')
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkidTienda"  ><p class="font-weight-normal">Tienda </p></label>
               {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'placeholder'=>'Seleccione Tienda','value'=>'{{$empleado->fkidTienda}}','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fechaIngresoEmpleado"><p class="font-weight-normal">Fecha de ingreso </p></label>
               <input type="date" name="fechaIngresoEmpleado" class="form-control" value="{{$empleado->fechaIngresoEmpleado}}" placeholder="fechaIngresoEmpleado">
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="fechaFinContratoEmpleado"><p class="font-weight-normal">Fecha fin de contrato </p></label>
+              <input type="date" name="fechaFinContratoEmpleado" class="form-control" value="{{$empleado->fechaFinContratoEmpleado}}" placeholder="fechaIngresoEmpleado">
             </div>
             <div class="col-sm-4 form-group">
               <label for="fkidTipoCargo"  ><p class="font-weight-normal">Cargo </p></label>

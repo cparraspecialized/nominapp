@@ -67,6 +67,7 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
+            $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
             $empleado->fechaRetiroEmpleado=null;
             $empleado->fkidTipoRetiro=null;
             $empleado->fkidUsuario=auth()->user()->id;  
@@ -79,7 +80,7 @@ class EmpleadoController extends Controller
        } catch (Exception $e) {
             DB::rollback();
             $msg = $e->getMessage();
-            return back()->with('error', 'Error al crear el Empleado ya Existe');
+            return back()->with('error', 'Error al crear el Empleado'.$e);
 
        }
 
@@ -117,6 +118,7 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
+            $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
             $empleado->fkidUsuario=auth()->user()->id;   
             $empleado->update();
             
@@ -209,6 +211,7 @@ class EmpleadoController extends Controller
                     'empleados.apellidoEmpleado',
                     'tiendas.nombreTienda',
                     'empleados.fechaIngresoEmpleado',
+                    'empleados.fechaFinContratoEmpleado',
                     'tipocargo.descripcionTipoCargo',
                     'tipocontrato.descripcionTipoContrato',
                     'empleados.sueldoEmpleado',

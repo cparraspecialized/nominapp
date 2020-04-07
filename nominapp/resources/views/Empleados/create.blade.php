@@ -22,13 +22,20 @@
                 <label for="apellidoEmpleado" ><p class="font-weight-normal">Apellidos </p></label>
                 <input type="text" name="apellidoEmpleado" class="form-control" required placeholder="Apellido del empleado">
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkidTienda"  ><p class="font-weight-normal">Tienda </p></label>
               {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda','required=required', 'placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fechaIngresoEmpleado"><p class="font-weight-normal">Fecha de ingreso </p></label>
               <input type="date" name="fechaIngresoEmpleado" class="form-control"  required placeholder="fechaIngresoEmpleado">
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="fechaFinContratoEmpleado"><p class="font-weight-normal">Fecha fin de contrato </p></label>
+              <input type="date" name="fechaFinContratoEmpleado" class="form-control" placeholder="fechaIngresoEmpleado">
+              <small id="HelpBlock" class="form-text text-muted">
+                Requerido en caso de que el contrato sea termino fijo.
+              </small>
             </div>
             <div class="col-sm-4 form-group">
               <label for="fkidTipoCargo"  ><p class="font-weight-normal">Cargo </p></label>

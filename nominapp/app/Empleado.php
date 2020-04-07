@@ -29,6 +29,7 @@ class Empleado extends Model
        'fechaRetiroEmpleado',
        'fkidTipoRetiro',
        'fkidUsuario',
+       'fechaFinContratoEmpleado'
 
    ];
 

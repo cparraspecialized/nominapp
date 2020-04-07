@@ -1,6 +1,6 @@
 @extends ('layouts.admin')
 @section ('content')
-    {!!Form::open(array('url'=>'TipoHoras','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
+    {!!Form::open(array('url'=>'TipoNovedad','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
         {{Form::token()}}
      
           <div class="col-lg-12 col-sm-12 form-group">
