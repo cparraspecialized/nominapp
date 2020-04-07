@@ -155,7 +155,6 @@
                 </ul>
               </li>  
          
-         
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
