@@ -20,17 +20,18 @@ class HoraExtra extends Model
        'fkcedulaEmpleado',
        'horasExtra',
        'fechaHorasExtra',
-       'fkidUsuario'   
+       'fkidUsuario',
+       'observacionHoraExtra'   
    ];
 
    protected $guarded=[
 
    ];
-   public function TipoHora(){
+   public function tipohoras(){
     return $this->belongsTo(TipoHora::class,'fkidTipoHora');
     }
 
-    public function Empleado(){
+    public function empleados(){
         return $this->belongsTo(Empleado::class,'fkcedulaEmpleado');
     }
 

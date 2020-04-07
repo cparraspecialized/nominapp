@@ -21,11 +21,16 @@
             <div class="form-group">
                 <label for="horasExtra"><p class="font-weight-normal">Ingrese el numero de horas extras realizadas: </p></label>
                 <input type="number" name="horasExtra" class="form-control" placeholder="horas Extras">
-            </div>
+            </div>          
             <div class="form-group">
                 <label for="fechaHorasExtra"><p class="font-weight-normal">Fecha de la Hora extra: </p></label>
                 <input type="date" name="fechaHorasExtra" class="form-control" placeholder="fecha de hora extra">
             </div>
+            <div class="form-group">
+              <label for="observacionHoraExtra"><p class="font-weight-normal">Observaciones de la hora extra: </p></label>
+              <textarea class="form-control" name="observacionHoraExtra" rows="3"></textarea>
+            </div>
+          </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
             <button class="btn btn-danger btn-lg btn-block" type="reset">Cancelar</button>
 

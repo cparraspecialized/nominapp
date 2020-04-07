@@ -9,6 +9,7 @@ use App\TipoNovedad;
 use App\Novedad;
 use App\Empleado;
 use App\Exports\NovedadExport;
+use App\Http\Requests\storeNovedadRequest;
 use DB;
 use Exception;
 use Maatwebsite\Excel\Facades\Excel;
@@ -52,7 +53,7 @@ class NovedadController extends Controller
         return view('Novedades.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkTipoNovedad'=>$fkTipoNovedad,'fechaInicioNovedad'=>$fechaInicioNovedad,'fechaFinNovedad'=>$fechaFinNovedad] ,compact('novedades','empleados','tiponovedad'));
     }
 
-    public function store(Request $request){
+    public function store(storeNovedadRequest $request){
 
         try {
 

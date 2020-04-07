@@ -33,9 +33,10 @@ Route::resource('TipoCargos', 'TipoCargoController')->middleware('auth');
 Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status');
 Route::post('Empleados/changestatus/', 'EmpleadoController@changeStatus')->name('changestatus');
 Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado');
-Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 
+Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 Route::get('ExportNovedades', 'NovedadController@export'); 
+Route::get('ExportHoraExtra', 'HoraExtraController@export'); 
 
 
 
