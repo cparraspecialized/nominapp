@@ -201,18 +201,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('TipoNovedad/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Tipo Novedad</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoNovedad/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Tipos de novedades</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{url('Novedades/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crear Novedad</p>
@@ -224,6 +212,19 @@
                   <p>Consultar Novedades</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{url('TipoNovedad/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Tipo Novedad</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('TipoNovedad/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Tipos de novedades</p>
+                </a>
+              </li>
+              
             </ul>
           </li>
           <li class="nav-item has-treeview">
