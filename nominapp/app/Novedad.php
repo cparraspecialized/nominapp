@@ -21,7 +21,9 @@ class Novedad extends Model
         'fkidUsuario',
         'created_at',
         'updated_at',
-        'fktipoNovedad'
+        'fktipoNovedad',
+        'fechaFinNovedad',
+        'observacionNovedad'
     ];
  
     protected $guarded=[
@@ -35,5 +37,9 @@ class Novedad extends Model
 
     public function users(){
         return $this->belongsTo(User::class,'fkidUsuario');
+    }
+
+    public function empleados(){
+        return $this->belongsTo(Empleado::class,'fkcedulaEmpleado');
     }
 }

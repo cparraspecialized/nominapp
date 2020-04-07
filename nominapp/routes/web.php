@@ -35,6 +35,8 @@ Route::post('Empleados/changestatus/', 'EmpleadoController@changeStatus')->name(
 Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado');
 Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 
+Route::get('ExportNovedades', 'NovedadController@export'); 
+
 
 
 

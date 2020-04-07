@@ -29,6 +29,7 @@
                     <th>Fecha de Ingreso</th>
                     <th>Cargo</th>
                     <th>Contrato</th>
+                    <th>Fecha de Finalizacion de contrato</th>
                     <th>Salario</th>
                     <th>Estado</th>
                     <th>Fecha de Retiro</th>
@@ -47,6 +48,7 @@
                     <td>{{$emp->fechaIngresoEmpleado}}</td>
                     <td>{{$emp->tipocargo['descripcionTipoCargo']}}</td>
                     <td>{{$emp->tipocontrato['descripcionTipoContrato']}}</td>
+                    <td>{{$emp->fechaFinContratoEmpleado}}</td>
                     <td>$ {{number_format($emp->sueldoEmpleado, 0) }}</td>
                     <td>{{$emp->estadoEmpleado}}</td>
                     <td>{{$emp->fechaRetiroEmpleado}}</td>

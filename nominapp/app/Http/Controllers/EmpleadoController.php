@@ -13,6 +13,7 @@ use App\Http\Requests\storeEmpleadoRequest;
 use Carbon\Carbon;
 use App\Exports\EmpleadoExport;
 use Exception;
+use Maatwebsite\Excel\Facades\Excel;
 use DB;
 
 class EmpleadoController extends Controller
@@ -46,7 +47,7 @@ class EmpleadoController extends Controller
         ->where('fkidTienda','like','%'.$fkidTienda.'%')
         ->paginate(8);
 
-        return view('Empleados.index', compact('empleados'));
+        return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));
 
         }
     }
@@ -66,6 +67,7 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
+            $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
             $empleado->fechaRetiroEmpleado=null;
             $empleado->fkidTipoRetiro=null;
             $empleado->fkidUsuario=auth()->user()->id;  
@@ -78,7 +80,7 @@ class EmpleadoController extends Controller
        } catch (Exception $e) {
             DB::rollback();
             $msg = $e->getMessage();
-            return back()->with('error', 'Error al crear el Empleado ya Existe');
+            return back()->with('error', 'Error al crear el Empleado'.$e);
 
        }
 
@@ -116,6 +118,7 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
+            $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
             $empleado->fkidUsuario=auth()->user()->id;   
             $empleado->update();
             
@@ -194,18 +197,44 @@ class EmpleadoController extends Controller
         $nombreEmpleado=trim($request->get('nombreEmpleado'));
         $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
         $fkidTienda=trim($request->get('fkidTienda'));
-        $empleados =Empleado::orderBy('created_at','desc')
-        ->where('cedula','like','%'.$cedula.'%')
-        ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
-        ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
-        ->where('fkidTienda','like','%'.$fkidTienda.'%')
+        $empleados =DB::table('empleados')
+        ->join('tiendas','fkidTienda','=','tiendas.id')
+        ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
+        ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+        ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
+        ->where('empleados.cedula','like','%'.$cedula.'%')
+        ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
+        ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+        ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
+        ->select(   'empleados.cedula',
+                    'empleados.nombreEmpleado',
+                    'empleados.apellidoEmpleado',
+                    'tiendas.nombreTienda',
+                    'empleados.fechaIngresoEmpleado',
+                    'empleados.fechaFinContratoEmpleado',
+                    'tipocargo.descripcionTipoCargo',
+                    'tipocontrato.descripcionTipoContrato',
+                    'empleados.sueldoEmpleado',
+                    'empleados.estadoEmpleado',
+                    'empleados.fechaRetiroEmpleado',
+                    'tiporetiro.descripcionTipoRetiro'
+                    )
         ->get();
 
-        return (new EmpleadoExport($empleados))->download('Empleados.xlsx');
+        $hoy = getdate();
 
+        $d = $hoy['mday'];
+        $m = $hoy['mon'];
+         $y = $hoy['year'];
+       
+        //return (new EmpleadoExport($empleados,$cedula,$nombreEmpleado,$apellidoEmpleado,$fkidTienda))->download('Empleados.xlsx');
+
+        
+
+        return Excel::download(new EmpleadoExport($empleados), 'Empleados'.$d.$m.$y.'.xlsx');
 
    
-}
+}   
 
    
     
