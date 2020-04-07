@@ -28,6 +28,12 @@
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+   <!-- fullCalendar -->
+   <link rel="stylesheet" href="{{asset('plugins/fullcalendar/main.min.css')}}">
+   <link rel="stylesheet" href="{{asset('plugins/fullcalendar-daygrid/main.min.css')}}">
+   <link rel="stylesheet" href="{{asset('plugins/fullcalendar-timegrid/main.min.css')}}">
+   <link rel="stylesheet" href="{{asset('plugins/fullcalendar-bootstrap/main.min.css')}}">
 </head>
 <body class="sidebar-mini layout-fixed accent-navy control-sidebar-slide-open">
 <div class="wrapper">
@@ -251,6 +257,30 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Gestion de Usuarios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('Users/index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ver Usuarios Tienda</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('register/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Usuarios</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -265,12 +295,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="{{url('home')}}">Inicio</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

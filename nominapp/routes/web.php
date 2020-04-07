@@ -12,13 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('Users', 'UserController')->middleware('auth');
 Route::resource('Tiendas', 'TiendaController')->middleware('auth');
 Route::resource('Empleados', 'EmpleadoController')->middleware('auth');
 Route::resource('TipoNovedad', 'TipoNovedadController')->middleware('auth');
