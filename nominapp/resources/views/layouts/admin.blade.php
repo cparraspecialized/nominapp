@@ -154,6 +154,42 @@
                   </li>                                             
                 </ul>
               </li>  
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Gestion Novedades
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('Novedades/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Novedad</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('Novedades/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Novedades</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoNovedad/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Tipo Novedad</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('TipoNovedad/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Tipos de novedades</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
          
          
           <li class="nav-item has-treeview">
@@ -166,6 +202,18 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="{{url('HoraExtras/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Hora Extra</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('HoraExtras/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar Hora Extra</p>
+                </a>
+              </li>     
+              <li class="nav-item">
                 <a href="{{url('TipoHoras/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crear Tipo Hora Extra</p>
@@ -177,56 +225,10 @@
                   <p>Consultar Tipo Hora Extra</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{url('HoraExtras/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Hora Extra</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('HoraExtras/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Hora Extra</p>
-                </a>
-              </li>              
+                       
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Gestion Novedades
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('Novedades/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Novedad</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('Novedades/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Novedades</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoNovedad/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Tipo Novedad</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('TipoNovedad/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar Tipos de novedades</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
