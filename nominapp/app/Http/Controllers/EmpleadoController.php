@@ -46,7 +46,6 @@ class EmpleadoController extends Controller
         ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
         ->where('fkidTienda','like','%'.$fkidTienda.'%')
         ->paginate(8);
-
         return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));
 
         }
@@ -82,13 +81,7 @@ class EmpleadoController extends Controller
             $msg = $e->getMessage();
             return back()->with('error', 'Error al crear el Empleado'.$e);
 
-       }
-
-          
-       
-         
-        
-
+       }     
     }
 
     public function edit($id){

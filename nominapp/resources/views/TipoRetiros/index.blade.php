@@ -7,6 +7,7 @@
     <div class="card card-primary card-outline">
       <div class="card-header">
         <h5 class="card-title m-0">Retiros</h5>
+        @include('TipoRetiros.search') 
       </div>
       <div class="card-body">
         <div class="row">

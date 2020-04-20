@@ -7,6 +7,7 @@
     <div class="card card-primary card-outline">
       <div class="card-header">
         <h5 class="card-title m-0">Empleados</h5>
+        @include('TipoContratos.search') 
       </div>
       <div class="card-body">
         <div class="row">

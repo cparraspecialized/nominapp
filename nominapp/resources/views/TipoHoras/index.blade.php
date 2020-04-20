@@ -7,6 +7,7 @@
     <div class="card card-primary card-outline">
       <div class="card-header">
         <h5 class="card-title m-0">Horas Extras</h5>
+        @include('TipoHoras.search') 
       </div>
       <div class="card-body">
         <div class="row">
@@ -25,10 +26,11 @@
                         @foreach ($tipohoras as $tiho)
                         <tr>
                             <td>{{$tiho->descripcionTipo}}</td>
+                            <td>{{$tiho->created_at}}</td>
                         </tr>
                         @endforeach
                     </table>
-                    {{ $tiendas->render() }} 
+                    
                 </div></h4>
             </div>
         </div>

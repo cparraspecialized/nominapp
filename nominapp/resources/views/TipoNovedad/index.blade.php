@@ -7,6 +7,7 @@
         <div class="card card-primary card-outline">
           <div class="card-header">
             <h5 class="card-title m-0">Novedades</h5>
+            @include('TipoNovedad.search')
           </div>
           <div class="card-body">
             

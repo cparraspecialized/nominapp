@@ -38,9 +38,8 @@ Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado'
 Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 Route::get('ExportNovedades', 'NovedadController@export'); 
 Route::get('ExportHoraExtra', 'HoraExtraController@export'); 
-
-
-
-
-
-  
+Route::get('ExportTipoHora', 'TipoHoraController@export');  
+Route::get('ExportTipoRetiro', 'TipoRetiroController@export');  
+Route::get('ExportTipoContrato', 'TipoContratoController@export');
+Route::get('ExportTipoNovedad', 'TipoNovedadController@export');
+Route::get('ExportTienda', 'TiendaController@export');
