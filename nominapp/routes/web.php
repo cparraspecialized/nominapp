@@ -29,6 +29,7 @@ Route::resource('HoraExtras', 'HoraExtraController')->middleware('auth');
 Route::resource('TipoContratos', 'TipoContratoController')->middleware('auth');
 Route::resource('TipoRetiros', 'TipoRetiroController')->middleware('auth');
 Route::resource('TipoCargos', 'TipoCargoController')->middleware('auth');
+Route::resource('Rol', 'RolController')->middleware('auth');
 
 
 Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status');
