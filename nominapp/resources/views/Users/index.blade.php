@@ -24,17 +24,20 @@
                         <thead class="thead-light">
                             <th>Cedula</th>
                             <th>Nombres</th>
-                            <th>Apellidos</th>      
+                            <th>Apellidos</th>
+                            <th>Tienda</th>
+                            <th>Rol</th>      
                         </thead>
                         @foreach ($users as $use)
-                        <tr>
+                        <tr>                            
                             <td>{{$use->id}}</td>
                             <td>{{$use->name}}</td>
                             <td>{{$use->email}}</td>
+                            <td>{{$use->tiendas['nombreTienda']}}</td>
+                            <td>{{$use->rol['tipo_Rol']}}</td>
                         </tr>
                         @endforeach
                     </table>
-                    {{ $users->render() }} 
                 </div></h4>
             </div>
         </div>

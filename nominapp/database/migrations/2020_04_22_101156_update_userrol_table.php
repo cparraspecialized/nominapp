@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateUserTable extends Migration
+class UpdateUserrolTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,13 @@ class UpdateUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('fkidTienda')->nullable();
-            
-            $table->foreign('fkidTienda')->references('id')->on('tiendas')
+            $table->unsignedInteger('fkidRol')->nullable();
+
+            $table->foreign('fkidRol')->references('id')->on('rol')
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
 
-        
     }
 
     /**

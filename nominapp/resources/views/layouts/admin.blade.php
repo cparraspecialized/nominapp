@@ -83,7 +83,7 @@
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a class="d-block">{{ Auth::user()->name }} - {{(Auth::user()->rol['tipo_Rol'])}}</a>
           <a class="brand-text font-weight-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -97,10 +97,11 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
+        @if (Auth::user()->rol['tipo_Rol'] == 'Administrador')
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-         
+             
                <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="nav-icon far fa-plus-square"></i>
@@ -306,6 +307,62 @@
             </ul>
           </li>
         </ul>
+        @endif
+        @if (Auth::user()->rol['tipo_Rol'] != 'Administrador')
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+             
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-plus-square"></i>
+                  <p>
+                    Gestion Empleados
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('Empleados/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Empleado</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('Empleados/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Empleados</p>
+                    </a>
+                  </li>                                           
+                </ul>
+              </li>  
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Gestion Novedades
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('Novedades/create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Crear Novedad</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('Novedades/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Novedades</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>   
+
+        </ul>
+        @endif
       </nav>
       <!-- /.sidebar-menu -->
     </div>
