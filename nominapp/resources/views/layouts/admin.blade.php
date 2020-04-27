@@ -69,7 +69,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar elevation-4 sidebar-dark-indigo">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link navbar-purple">
+    <a  class="brand-link navbar-purple">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
@@ -83,7 +83,7 @@
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a class="d-block">{{ Auth::user()->name }} - {{(Auth::user()->tiendas['nombreTienda'])}}</a>
+          <a class="d-block">{{ Auth::user()->name }}  <br> {{(Auth::user()->tiendas['nombreTienda'])}}</a>
           <a class="brand-text font-weight-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
