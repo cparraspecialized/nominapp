@@ -31,6 +31,52 @@ class NovedadController extends Controller
 
     public function index(Request $request){
 
+        if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
+            $empleados= Empleado::pluck('cedula','cedula');
+            $tiponovedad= TipoNovedad::pluck('descripcionTipoNovedad','id');
+
+            $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
+            $fechaInicioNovedad=trim($request->get('fechaInicioNovedad'));
+            $fechaFinNovedad=trim($request->get('fechaFinNovedad'));
+            $fkTipoNovedad=trim($request->get('fkTipoNovedad'));
+
+
+            if($fechaInicioNovedad == null){
+                $fechaInicioNovedad='01/01/1900';
+            }
+
+            $novedades =Novedad::orderBy('id','desc')
+            ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+            ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
+            ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+            ->paginate(10);
+
+            return view('Novedades.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkTipoNovedad'=>$fkTipoNovedad,'fechaInicioNovedad'=>$fechaInicioNovedad,'fechaFinNovedad'=>$fechaFinNovedad] ,compact('novedades','empleados','tiponovedad'));
+        }else{
+            $empleados= Empleado::pluck('cedula','cedula');
+            $tiponovedad= TipoNovedad::pluck('descripcionTipoNovedad','id');
+
+            $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
+            $fechaInicioNovedad=trim($request->get('fechaInicioNovedad'));
+            $fechaFinNovedad=trim($request->get('fechaFinNovedad'));
+            $fkTipoNovedad=trim($request->get('fkTipoNovedad'));
+
+
+            if($fechaInicioNovedad == null){
+                $fechaInicioNovedad='01/01/1900';
+            }
+
+            $novedades =Novedad::orderBy('id','desc')
+            ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+            ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+            ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
+            ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+            ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+            ->paginate(10);
+
+            return view('Novedades.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkTipoNovedad'=>$fkTipoNovedad,'fechaInicioNovedad'=>$fechaInicioNovedad,'fechaFinNovedad'=>$fechaFinNovedad] ,compact('novedades','empleados','tiponovedad'));
+        }
+
         $empleados= Empleado::pluck('cedula','cedula');
         $tiponovedad= TipoNovedad::pluck('descripcionTipoNovedad','id');
 

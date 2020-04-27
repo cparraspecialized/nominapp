@@ -39,26 +39,51 @@ class HoraExtraController extends Controller
 
     public function index(Request $request){
 
-        $empleados= Empleado::pluck('cedula','cedula');
-        $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
+        if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
+            $empleados= Empleado::pluck('cedula','cedula');
+            $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
 
-        $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
-        $fkidTipoHora=trim($request->get('fkidTipoHora'));
-        $fechaHorasExtra=trim($request->get('fechaHorasExtra'));
-        $fechafinHorasExtra=trim($request->get('fechafinHorasExtra'));
+            $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
+            $fkidTipoHora=trim($request->get('fkidTipoHora'));
+            $fechaHorasExtra=trim($request->get('fechaHorasExtra'));
+            $fechafinHorasExtra=trim($request->get('fechafinHorasExtra'));
 
-        if($fechaHorasExtra == null){
-            $fechaHorasExtra='01/01/1900';
-        }
+            if($fechaHorasExtra == null){
+                $fechaHorasExtra='01/01/1900';
+            }
 
 
-        $horasextras =HoraExtra::orderBy('id','desc')
-        ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
-        ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
-        ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
-        ->paginate(10);
+            $horasextras =HoraExtra::orderBy('id','desc')
+            ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+            ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
+            ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+            ->paginate(10);
 
-        return view('HoraExtras.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra],compact('horasextras','empleados','tipohoraextra'));
+            return view('HoraExtras.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra],compact('horasextras','empleados','tipohoraextra'));
+        }else{
+            $empleados= Empleado::pluck('cedula','cedula');
+            $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
+
+            $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
+            $fkidTipoHora=trim($request->get('fkidTipoHora'));
+            $fechaHorasExtra=trim($request->get('fechaHorasExtra'));
+            $fechafinHorasExtra=trim($request->get('fechafinHorasExtra'));
+
+            if($fechaHorasExtra == null){
+                $fechaHorasExtra='01/01/1900';
+            }
+
+
+            $horasextras =HoraExtra::orderBy('id','desc')
+            ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+            ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+            ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
+            ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+            ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+            ->paginate(10);
+
+            return view('HoraExtras.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra],compact('horasextras','empleados','tipohoraextra'));
+        }    
     }
 
     public function store(storeHoraExtraRequest $request){
