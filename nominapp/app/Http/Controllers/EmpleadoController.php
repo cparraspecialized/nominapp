@@ -34,20 +34,34 @@ class EmpleadoController extends Controller
 
     public function index(Request $request){
 
+        
+
         if($request){
-
-        $cedula=trim($request->get('cedula'));
-        $nombreEmpleado=trim($request->get('nombreEmpleado'));
-        $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
-        $fkidTienda=trim($request->get('fkidTienda'));
-        $empleados =Empleado::orderBy('created_at','desc')
-        ->where('cedula','like','%'.$cedula.'%')
-        ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
-        ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
-        ->where('fkidTienda','like','%'.$fkidTienda.'%')
-        ->paginate(8);
-        return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));
-
+            if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
+                $cedula=trim($request->get('cedula'));
+                $nombreEmpleado=trim($request->get('nombreEmpleado'));
+                $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+                $fkidTienda=trim($request->get('fkidTienda'));
+                $empleados =Empleado::orderBy('created_at','desc')
+                ->where('cedula','like','%'.$cedula.'%')
+                ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                ->where('fkidTienda','like','%'.$fkidTienda.'%')
+                ->paginate(8);
+                return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));
+            }else{
+                $cedula=trim($request->get('cedula'));
+                $nombreEmpleado=trim($request->get('nombreEmpleado'));
+                $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+                $fkidTienda=trim($request->get('fkidTienda'));
+                $empleados =Empleado::orderBy('created_at','desc')
+                ->where('cedula','like','%'.$cedula.'%')
+                ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                ->where('fkidTienda','=',auth()->user()->tiendas['id'])
+                ->paginate(8);
+                return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));
+            }
         }
     }
 
@@ -145,30 +159,34 @@ class EmpleadoController extends Controller
     public function changeStatus(Request $request){
 
         $empleado =Empleado::findOrFail($request->get('cedula'));
+
         
-        if($empleado->estadoEmpleado=='ACTIVO'){
+            if($empleado->estadoEmpleado=='ACTIVO'){
 
-            $empleado =Empleado::findOrFail($request->get('cedula'));
-            $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
-            $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
-            $empleado->fkidUsuario=auth()->user()->id; 
-            $empleado->estadoEmpleado=('INACTIVO'); 
-            $empleado->update();
-            return Redirect::to('Empleados'); 
-
-        }else{
-
-            $empleado =Empleado::findOrFail($request->get('cedula'));
-            $empleado->fechaRetiroEmpleado=null;
-            $empleado->fkidTipoRetiro=null;
-            $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
-            $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
-            $empleado->fkidUsuario=auth()->user()->id; 
-            $empleado->estadoEmpleado=('ACTIVO'); 
-            $empleado->update();
-            return Redirect::to('Empleados');
-
-        }
+                $empleado =Empleado::findOrFail($request->get('cedula'));
+                $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
+                $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
+                $empleado->fkidUsuario=auth()->user()->id; 
+                $empleado->estadoEmpleado=('INACTIVO'); 
+                $empleado->update();
+                return Redirect::to('Empleados'); 
+    
+            }else{
+    
+                $empleado =Empleado::findOrFail($request->get('cedula'));
+                $empleado->fechaRetiroEmpleado=null;
+                $empleado->fkidTipoRetiro=null;
+                $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
+                $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
+                $empleado->fkidUsuario=auth()->user()->id; 
+                $empleado->estadoEmpleado=('ACTIVO'); 
+                $empleado->update();
+                return Redirect::to('Empleados');
+    
+            }
+        
+        
+        
 
         return Redirect::to('Empleados');
 

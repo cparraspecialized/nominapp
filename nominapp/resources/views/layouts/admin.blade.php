@@ -83,7 +83,7 @@
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a class="d-block">{{ Auth::user()->name }} - {{(Auth::user()->rol['tipo_Rol'])}}</a>
+          <a class="d-block">{{ Auth::user()->name }} - {{(Auth::user()->tiendas['nombreTienda'])}}</a>
           <a class="brand-text font-weight-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
