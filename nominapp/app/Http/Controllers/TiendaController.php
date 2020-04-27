@@ -63,7 +63,7 @@ class TiendaController extends Controller
         ->leftjoin('municipios','fkcodigoMunicipio','=','municipios.codigoMunicipio')
         ->where('tiendas.nombreTienda','like','%'.$nombreTienda.'%')
         ->select(   'tiendas.nombreTienda',                    
-                    'municipios.nombreMunicipio',                    
+                    'municipios.nombreMunicipio'                   
                 )
         ->get();
 
