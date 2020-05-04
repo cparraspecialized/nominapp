@@ -22,11 +22,12 @@
                 <h4><div class="table-responsive">
                     <table class="table table-striped table-bordered table-condensed table-hover">
                         <thead class="thead-light">
-                            <th>Cedula</th>
+                            <th>Id</th>
                             <th>Nombres</th>
-                            <th>Apellidos</th>
+                            <th>Correo Electronico</th>
                             <th>Tienda</th>
-                            <th>Rol</th>      
+                            <th>Rol</th>  
+                            <th>Editar</th>    
                         </thead>
                         @foreach ($users as $use)
                         <tr>                            
@@ -35,6 +36,7 @@
                             <td>{{$use->email}}</td>
                             <td>{{$use->tiendas['nombreTienda']}}</td>
                             <td>{{$use->rol['tipo_Rol']}}</td>
+                            <td><a href="{{route('Users.edit', $use->id)}}"><button class="btn btn-outline-primary">Editar</button></td>
                         </tr>
                         @endforeach
                     </table>
