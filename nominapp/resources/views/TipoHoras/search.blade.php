@@ -7,10 +7,10 @@
               <div class="col-sm-12 form-group">
                 <input type="text" name="descripcionTipo" class="form-control" value="{{$descripcionTipo}}" placeholder="Descripcion Tipo Hora">
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('TipoHoraController@export',['descripcionTipo'=>$descripcionTipo])}}">Exportar</a>
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
             </div> 
             </div>  

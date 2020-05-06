@@ -32,8 +32,9 @@
                 </tr>
                 @endforeach
             </table>
+            {{$tiponovedad->render()}} 
         </div></h4>
-    </div>
+         </div>
           </div>
         </div>
       </div>

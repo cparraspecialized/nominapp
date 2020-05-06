@@ -8,10 +8,10 @@
 
                 <input type="text" name="descripcionTipoNovedad" class="form-control" value="{{$descripcionTipoNovedad}}" placeholder="Descripcion Tipo Novedad">
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('TipoNovedadController@export',['descripcionTipoNovedad'=>$descripcionTipoNovedad])}}">Exportar</a>
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
             </div> 
             </div>  

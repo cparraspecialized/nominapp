@@ -24,7 +24,7 @@
               </div>
               <div class="col-sm-4 form-group">
                 <label for="fkidRol"  ><p class="font-weight-normal">Rol </p></label>
-                {!! Form::select('fkidRol',$rol,null,['id'=>'fkidRol', 'placeholder'=>'Seleccione Contrato','value'=>'{{$users->fkidRol}}','class' => 'form-control'])!!}
+                {!! Form::select('fkidRol',$rol,null,['id'=>'fkidRol', 'placeholder'=>'Seleccione Rol','value'=>'{{$users->fkidRol}}','class' => 'form-control'])!!}
               </div>
             </div>
            

@@ -22,6 +22,7 @@
                     <table class="table table-striped table-bordered table-condensed table-hover">
                         <thead>
                             <th>Tipo de hora</th>
+                            <th>Fecha de creación</th>
                         </thead>
                         @foreach ($tipohoras as $tiho)
                         <tr>
