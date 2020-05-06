@@ -6,7 +6,7 @@
   <div class="col-lg-12 col-sm-12">
     <div class="card card-primary card-outline">
       <div class="card-header">
-        <h5 class="card-title m-0">Empleados</h5>
+        <h5 class="card-title m-0">Contratos</h5>
         @include('TipoContratos.search') 
       </div>
       <div class="card-body">
@@ -31,6 +31,7 @@
                         </tr>
                         @endforeach
                     </table>
+                    {{$tipocontrato->render()}} 
                 </div></h4>
             </div>
         </div>

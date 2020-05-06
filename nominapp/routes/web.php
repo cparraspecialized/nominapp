@@ -43,5 +43,6 @@ Route::get('ExportHoraExtra', 'HoraExtraController@export');
 Route::get('ExportTipoHora', 'TipoHoraController@export');  
 Route::get('ExportTipoRetiro', 'TipoRetiroController@export');  
 Route::get('ExportTipoContrato', 'TipoContratoController@export');
+Route::get('ExportTipoCargo', 'TipoCargoController@export');
 Route::get('ExportTipoNovedad', 'TipoNovedadController@export');
 Route::get('ExportTienda', 'TiendaController@export');

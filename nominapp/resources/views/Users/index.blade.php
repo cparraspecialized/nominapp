@@ -40,6 +40,7 @@
                         </tr>
                         @endforeach
                     </table>
+                    {{$users->render()}} 
                 </div></h4>
             </div>
         </div>

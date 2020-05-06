@@ -154,7 +154,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('TipoContratos/')}}" class="nav-link">
+                    <a href="{{url('TipoCargos/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Cargos</p>
                     </a>

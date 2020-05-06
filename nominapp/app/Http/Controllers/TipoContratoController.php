@@ -32,10 +32,6 @@ class TipoContratoController extends Controller
             return view('TipoContratos.index',["descripcionTipoContrato"=>$descripcionTipoContrato,"tipocontrato"=>$tipocontrato]);
     
         }
-
-        $tipocontrato =TipoContrato::orderBy('id','desc')->paginate(10);
-
-        return view('TipoContratos.index', compact('tipocontrato'));
     }
 
     public function store(storeTipoContratoRequest $request){
@@ -71,6 +67,6 @@ class TipoContratoController extends Controller
         $d = $hoy['mday'];
         $m = $hoy['mon'];
         $y = $hoy['year'];    
-        return Excel::download(new TipoContratoExport($tiporetiro), 'TipoContratos'.$d.$m.$y.'.xlsx');
+        return Excel::download(new TipoContratoExport($tipocontrato), 'TipoContratos'.$d.$m.$y.'.xlsx');
     }
 }

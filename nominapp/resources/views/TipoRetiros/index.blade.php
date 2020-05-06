@@ -31,6 +31,7 @@
                         </tr>
                         @endforeach
                     </table>
+                    {{$tiporetiro->render()}} 
                 </div></h4>
             </div>
         </div>

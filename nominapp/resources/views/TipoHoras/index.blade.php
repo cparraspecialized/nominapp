@@ -31,7 +31,7 @@
                         </tr>
                         @endforeach
                     </table>
-                    
+                    {{$tipohoras->render()}} 
                 </div></h4>
             </div>
         </div>
