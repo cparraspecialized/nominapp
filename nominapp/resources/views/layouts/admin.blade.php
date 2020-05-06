@@ -191,7 +191,7 @@
                   <li class="nav-item">
                     <a href="{{url('TipoNovedad/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Consultar Tipos de novedades</p>
+                      <p>Consultar Tipos de <br> novedades</p>
                     </a>
                   </li>
                   
@@ -295,7 +295,7 @@
               <li class="nav-item">
                 <a href="{{url('Users/index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ver Usuarios Tienda</p>
+                  <p>Ver Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
