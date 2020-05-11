@@ -28,7 +28,8 @@
               <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
             </div> 
             <div class="col-sm-4 form-group">             
-              <a href="{{route('Novedades.create')}}"> <button type="button" class="btn btn-outline-success btn-block">CREATE</button>                        
+              <a href="{{route('Novedades.create')}}"> <button type="button" class="btn btn-outline-success btn-block">https://www.youtube.com/watch?v=b5YMPhoUCRo
+              </button>                        
             </div>
             </div>  
 </div>
