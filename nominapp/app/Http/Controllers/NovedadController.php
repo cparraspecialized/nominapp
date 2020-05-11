@@ -24,7 +24,13 @@ class NovedadController extends Controller
     public function create(){
 
         $tnovedades= TipoNovedad::pluck('descripcionTipoNovedad','id');
-        $empleados= Empleado::pluck('cedula','cedula');
+        
+        if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
+            $empleados= Empleado::pluck('cedula','cedula');
+        }else{
+            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('cedula','cedula');
+        }
+        
 
         return view('Novedades.create',compact('tnovedades','empleados'));
     }
