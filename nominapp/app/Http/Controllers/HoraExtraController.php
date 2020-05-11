@@ -26,15 +26,16 @@ class HoraExtraController extends Controller
 
         $tipohoras= TipoHora::pluck('descripcionTipo','id');
 
-        $empleados= Empleado::pluck('cedula','cedula');
-
-        return view('HoraExtras.create',compact('empleados','tipohoras'));
-
         $tipohoras = TipoHora::pluck('descripcionTipo');    
 
-        $empleados = Empleado::pluck('cedula');
-        return View('HoraExtras.index', compact('empleados','tipohoras'));
-
+        if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
+            $empleados= Empleado::pluck('cedula','cedula');
+        }else{
+            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('cedula','cedula');
+        }  
+        
+        return view('HoraExtras.create',compact('empleados','tipohoras'));
+        
     }
 
     public function index(Request $request){

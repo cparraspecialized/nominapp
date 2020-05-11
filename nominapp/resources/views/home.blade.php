@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <h3>Bienvenidos a Nominapp, aplicacion de uso interno de Specialized Colombia para la gestion del recurso humano.</h1>
-                    <h4>A continuacion tienes algunos enlaces rapidos:</h2>
+                    <h3>Bienvenidos a Nominapp, aplicación de uso interno de Specialized Colombia para la gestión del recurso humano.</h1>
+                    <h4>A continuación tienes algunos enlaces rápidos:</h2>
                         
                     <br>
 
