@@ -30,7 +30,7 @@
                         </tr>
                         @endforeach
                     </table>
-                    {{$rol->render()}} 
+                     
                 </div></h4>
             </div>
         </div>

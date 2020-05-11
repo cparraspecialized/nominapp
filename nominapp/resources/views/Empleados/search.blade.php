@@ -18,12 +18,15 @@
             <div class="col-sm-3 form-group">
               {!! Form::select('fkidTienda',$tiendas,null,['id'=>'fkidTienda', 'value'=>'{{$fkidTienda}}','placeholder'=>'Seleccione Tienda','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('EmpleadoController@export',['cedula'=>$cedula,'nombreEmpleado'=>$nombreEmpleado,'apellidoEmpleado'=>$apellidoEmpleado,'fkidTienda'=>$fkidTienda])}}">Exportar</a>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
             </div> 
+            <div class="col-sm-4 form-group">             
+              <a href="{{route('Empleados.create')}}"> <button type="button" class="btn btn-outline-success btn-block">CREATE</button>                        
+            </div>
             </div>  
 </div>
 

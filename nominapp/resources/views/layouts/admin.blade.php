@@ -112,21 +112,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{url('Empleados/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Empleado</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
                     <a href="{{url('Empleados/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Empleados</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{url('TipoRetiros/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Motivo de Retiro</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -136,21 +124,9 @@
                     </a>
                   </li> 
                   <li class="nav-item">
-                    <a href="{{url('TipoContratos/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Tipos de Contrato</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
                     <a href="{{url('TipoContratos/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Tipos de Contrato</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{url('TipoCargos/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Cargos</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -171,21 +147,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{url('Novedades/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Novedad</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
                     <a href="{{url('Novedades/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Novedades</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{url('TipoNovedad/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Tipo Novedad</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -208,23 +172,11 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('HoraExtras/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Hora Extra</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{url('HoraExtras/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Consultar Hora Extra</p>
                 </a>
-              </li>     
-              <li class="nav-item">
-                <a href="{{url('TipoHoras/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Tipo Hora Extra</p>
-                </a>
-              </li>
+              </li>    
               <li class="nav-item">
                 <a href="{{url('TipoHoras/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -244,12 +196,6 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('Tiendas/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Tienda</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="{{url('Tiendas/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -323,12 +269,6 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{url('Empleados/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Empleado</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
                     <a href="{{url('Empleados/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Empleados</p>
@@ -345,12 +285,6 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{url('Novedades/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Novedad</p>
-                    </a>
-                  </li>
                   <li class="nav-item">
                     <a href="{{url('Novedades/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -369,12 +303,6 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{url('HoraExtras/create')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Crear Hora Extra</p>
-                    </a>
-                  </li>
                   <li class="nav-item">
                     <a href="{{url('HoraExtras/')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>

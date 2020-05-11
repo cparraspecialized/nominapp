@@ -22,12 +22,15 @@
             </div>
            
               
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <a class="btn btn-outline-info btn-block  form-group" role="button" href="{{URL::action('HoraExtraController@export',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra])}}">Exportar</a>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <button class="btn btn-outline-primary btn-block  form-group"  type="submit">Buscar</button>
             </div> 
+            <div class="col-sm-4 form-group">             
+              <a href="{{route('HoraExtras.create')}}"> <button type="button" class="btn btn-outline-success btn-block">CREATE</button>                        
+            </div>
             </div>  
 </div>
 
