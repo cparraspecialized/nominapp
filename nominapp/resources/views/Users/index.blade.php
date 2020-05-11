@@ -26,8 +26,10 @@
                             <th>Nombres</th>
                             <th>Correo Electronico</th>
                             <th>Tienda</th>
-                            <th>Rol</th>  
-                            <th>Editar</th>    
+                            <th>Rol</th> 
+                            <th>Estado</th> 
+                            <th>Editar</th>  
+                            <th>Retirar/Ingresar</th>  
                         </thead>
                         @foreach ($users as $use)
                         <tr>                            
@@ -36,7 +38,14 @@
                             <td>{{$use->email}}</td>
                             <td>{{$use->tiendas['nombreTienda']}}</td>
                             <td>{{$use->rol['tipo_Rol']}}</td>
+                            <td>{{$use->estadoUser}}</td>
                             <td><a href="{{route('Users.edit', $use->id)}}"><button class="btn btn-outline-primary">Editar</button></td>
+                            @if ($use->estadoUser == 'ACTIVO')
+                            <td><a href="{{route('status',['id' => $use->id])}}"><button class="btn btn-outline-danger">Retirar</button></td>
+                            @endif
+                            @if ($use->estadoUser == 'INACTIVO')
+                            <td><a href="{{route('status',['id' => $use->id])}}"><button class="btn btn-outline-success">Ingresar</button></td>
+                            @endif
                         </tr>
                         @endforeach
                     </table>
