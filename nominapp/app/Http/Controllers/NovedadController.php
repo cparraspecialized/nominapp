@@ -26,9 +26,9 @@ class NovedadController extends Controller
         $tnovedades= TipoNovedad::pluck('descripcionTipoNovedad','id');
         
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
-            $empleados= Empleado::pluck('cedula','cedula');
+            $empleados= Empleado::pluck('nombreEmpleado','cedula');
         }else{
-            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('cedula','cedula');
+            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
         }
         
 
@@ -38,7 +38,7 @@ class NovedadController extends Controller
     public function index(Request $request){
 
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
-            $empleados= Empleado::pluck('cedula','cedula');
+            $empleados= Empleado::pluck('nombreEmpleado','cedula');
             $tiponovedad= TipoNovedad::pluck('descripcionTipoNovedad','id');
 
             $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
@@ -59,7 +59,7 @@ class NovedadController extends Controller
 
             return view('Novedades.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkTipoNovedad'=>$fkTipoNovedad,'fechaInicioNovedad'=>$fechaInicioNovedad,'fechaFinNovedad'=>$fechaFinNovedad] ,compact('novedades','empleados','tiponovedad'));
         }else{
-            $empleados= Empleado::pluck('cedula','cedula');
+            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
             $tiponovedad= TipoNovedad::pluck('descripcionTipoNovedad','id');
 
             $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
@@ -83,7 +83,7 @@ class NovedadController extends Controller
             return view('Novedades.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkTipoNovedad'=>$fkTipoNovedad,'fechaInicioNovedad'=>$fechaInicioNovedad,'fechaFinNovedad'=>$fechaFinNovedad] ,compact('novedades','empleados','tiponovedad'));
         }
 
-        $empleados= Empleado::pluck('cedula','cedula');
+        $empleados= Empleado::pluck('nombreEmpleado','cedula');
         $tiponovedad= TipoNovedad::pluck('descripcionTipoNovedad','id');
 
         $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));

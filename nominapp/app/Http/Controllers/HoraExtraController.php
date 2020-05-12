@@ -29,9 +29,9 @@ class HoraExtraController extends Controller
         $tipohoras = TipoHora::pluck('descripcionTipo');    
 
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
-            $empleados= Empleado::pluck('cedula','cedula');
+            $empleados= Empleado::pluck('nombreEmpleado','cedula');
         }else{
-            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('cedula','cedula');
+            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
         }  
         
         return view('HoraExtras.create',compact('empleados','tipohoras'));
@@ -41,7 +41,7 @@ class HoraExtraController extends Controller
     public function index(Request $request){
 
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
-            $empleados= Empleado::pluck('cedula','cedula');
+            $empleados= Empleado::pluck('nombreEmpleado','cedula');
             $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
 
             $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
@@ -62,7 +62,7 @@ class HoraExtraController extends Controller
 
             return view('HoraExtras.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra],compact('horasextras','empleados','tipohoraextra'));
         }else{
-            $empleados= Empleado::pluck('cedula','cedula');
+            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
             $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
 
             $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
