@@ -26,6 +26,8 @@ class HoraExtraController extends Controller
 
         $tipohoras= TipoHora::pluck('descripcionTipo','id');
 
+        $tipohoras = TipoHora::pluck('descripcionTipo');    
+
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
             $empleados= Empleado::pluck('nombreEmpleado','cedula');
         }else{
