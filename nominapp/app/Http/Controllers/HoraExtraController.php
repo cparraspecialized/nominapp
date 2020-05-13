@@ -51,14 +51,21 @@ class HoraExtraController extends Controller
             if($fechaHorasExtra == null){
                 $fechaHorasExtra='01/01/1900';
             }
+            if($fkcedulaEmpleado == ""){
+                $horasextras =HoraExtra::orderBy('id','desc')
+                ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+                ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
+                ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+                ->paginate(10);
+            }else{
+                $horasextras =HoraExtra::orderBy('id','desc')
+                ->where('fkcedulaEmpleado','=',$fkcedulaEmpleado)
+                ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
+                ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+                ->paginate(10);
+            }
 
-
-            $horasextras =HoraExtra::orderBy('id','desc')
-            ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
-            ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
-            ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
-            ->paginate(10);
-
+            
             return view('HoraExtras.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra],compact('horasextras','empleados','tipohoraextra'));
         }else{
             $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
@@ -125,23 +132,43 @@ class HoraExtraController extends Controller
             $fechaHorasExtra='01/01/1900';
         }
 
-        $horasextras =DB::table('hora_extras')
-        ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
-        ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
-        ->join('tipohoras','fkidTipoHora','=','tipohoras.id')
-        ->where('hora_extras.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
-        ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
-        ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
-        ->select(   'hora_extras.fkcedulaEmpleado',
-                    'empleados.nombreEmpleado',
-                    'empleados.apellidoEmpleado',
-                    'tiendas.nombreTienda',
-                    'tipohoras.descripcionTipo',
-                    'hora_extras.horasExtra',
-                    'hora_extras.fechaHorasExtra',
-                    'hora_extras.observacionHoraExtra'
-                    )
-        ->get();
+        if($fkcedulaEmpleado == ""){
+            $horasextras =DB::table('hora_extras')
+            ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+            ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
+            ->join('tipohoras','fkidTipoHora','=','tipohoras.id')
+            ->where('hora_extras.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+            ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
+            ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+            ->select(   'hora_extras.fkcedulaEmpleado',
+                        'empleados.nombreEmpleado',
+                        'empleados.apellidoEmpleado',
+                        'tiendas.nombreTienda',
+                        'tipohoras.descripcionTipo',
+                        'hora_extras.horasExtra',
+                        'hora_extras.fechaHorasExtra',
+                        'hora_extras.observacionHoraExtra'
+                        )
+            ->get();
+        }else{
+            $horasextras =DB::table('hora_extras')
+            ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+            ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
+            ->join('tipohoras','fkidTipoHora','=','tipohoras.id')
+            ->where('hora_extras.fkcedulaEmpleado','=',$fkcedulaEmpleado)
+            ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
+            ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+            ->select(   'hora_extras.fkcedulaEmpleado',
+                        'empleados.nombreEmpleado',
+                        'empleados.apellidoEmpleado',
+                        'tiendas.nombreTienda',
+                        'tipohoras.descripcionTipo',
+                        'hora_extras.horasExtra',
+                        'hora_extras.fechaHorasExtra',
+                        'hora_extras.observacionHoraExtra'
+                        )
+            ->get();
+        }
         
         $hoy = getdate();
 

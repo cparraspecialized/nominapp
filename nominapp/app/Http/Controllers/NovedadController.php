@@ -179,7 +179,6 @@ class NovedadController extends Controller
         }
 
         if($fkcedulaEmpleado == ""){
-
             $novedades =DB::table('novedades')
             ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
             ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
