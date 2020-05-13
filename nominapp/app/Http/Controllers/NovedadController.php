@@ -29,6 +29,7 @@ class NovedadController extends Controller
             $empleados= Empleado::pluck('nombreEmpleado','cedula');
         }else{
             $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
+            
         }
         
 
