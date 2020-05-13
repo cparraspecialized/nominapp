@@ -24,9 +24,7 @@ class HoraExtraController extends Controller
 
     public function create(){
 
-        $tipohoras= TipoHora::pluck('descripcionTipo','id');
-
-        $tipohoras = TipoHora::pluck('descripcionTipo');    
+        $tipohoras= TipoHora::pluck('descripcionTipo','id');  
 
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
             $empleados= Empleado::pluck('nombreEmpleado','cedula');
