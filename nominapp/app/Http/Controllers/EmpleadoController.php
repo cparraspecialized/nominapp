@@ -9,6 +9,8 @@ use App\Empleado;
 use App\TipoCargo;
 use App\TipoContrato;
 use App\TipoRetiro;
+use App\CentroCosto;
+use App\Division;
 use App\Http\Requests\storeEmpleadoRequest;
 use Carbon\Carbon;
 use App\Exports\EmpleadoExport;
@@ -27,8 +29,10 @@ class EmpleadoController extends Controller
         $tiendas= Tienda::pluck('nombreTienda','id');
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
+        $centrocosto= CentroCosto::pluck('area','id');
+        $division= Division::pluck('area','id');
 
-        return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato'));
+        return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato','centrocosto','division'));
 
     }
 
@@ -102,7 +106,9 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
-            $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
+            $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');            
+            $empleado->fkcentroCostos=$request->get('fkcentroCostos');
+            $empleado->fkdivision=$request->get('fkdivision');
             $empleado->fechaRetiroEmpleado=null;
             $empleado->fkidTipoRetiro=null;
             $empleado->fkidUsuario=auth()->user()->id;  
@@ -126,8 +132,10 @@ class EmpleadoController extends Controller
         $tiendas= Tienda::pluck('nombreTienda','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
+        $centrocosto= CentroCosto::pluck('area','id');
+        $division= Division::pluck('area','id');
      
-        return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo'));
+        return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo','centrocosto','division'));
 
     }
 
@@ -148,6 +156,8 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
             $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
+            $empleado->fkcentroCostos=$request->get('fkcentroCostos');
+            $empleado->fkdivision=$request->get('fkdivision');
             $empleado->fkidUsuario=auth()->user()->id;   
             $empleado->update();
             
@@ -220,8 +230,10 @@ class EmpleadoController extends Controller
         $tiendas= Tienda::pluck('nombreTienda','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
+        $centrocosto= CentroCosto::pluck('area','id');
+        $division= Division::pluck('area','id');
 
-        return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo'));
+        return view("Empleados.edit",["empleado"=>Empleado::findOrFail($id)],compact('tiporetiro','tipocontrato','tiendas','tipocargo','centrocosto','division'));
     }
 
     public function export(Request $request){
@@ -235,6 +247,8 @@ class EmpleadoController extends Controller
             ->join('tiendas','fkidTienda','=','tiendas.id')
             ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
             ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+            ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
+            ->leftjoin('divisiones','fkdivision','=','divisiones.id')
             ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
             ->where('empleados.cedula','like','%'.$cedula.'%')
             ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
@@ -251,6 +265,8 @@ class EmpleadoController extends Controller
                         'empleados.sueldoEmpleado',
                         'empleados.estadoEmpleado',
                         'empleados.fechaRetiroEmpleado',
+                        'centrocostos.descripcionCentroCostos',
+                        'divisiones.descripcionDivision',
                         'tiporetiro.descripcionTipoRetiro'
                         )
             ->get();
@@ -259,6 +275,8 @@ class EmpleadoController extends Controller
             ->join('tiendas','fkidTienda','=','tiendas.id')
             ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
             ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+            ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
+            ->leftjoin('divisiones','fkdivision','=','divisiones.id')
             ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
             ->where('empleados.cedula','=',$cedula)
             ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
@@ -275,6 +293,8 @@ class EmpleadoController extends Controller
                         'empleados.sueldoEmpleado',
                         'empleados.estadoEmpleado',
                         'empleados.fechaRetiroEmpleado',
+                        'centrocostos.descripcionCentroCostos',
+                        'divisiones.descripcionDivision',
                         'tiporetiro.descripcionTipoRetiro'
                         )
             ->get();

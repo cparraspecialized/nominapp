@@ -36,6 +36,8 @@ class EmpleadoExport implements FromCollection, WithHeadings
             'Salario',
             'Estado',
             'Fecha Retiro',
+            'Centro de Costos',
+            'Division',
             'Motivo de retiro'
 
         ];

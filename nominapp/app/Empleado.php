@@ -28,6 +28,8 @@ class Empleado extends Model
        'sueldoEmpleado',
        'fechaRetiroEmpleado',
        'fkidTipoRetiro',
+       'fkcentroCostos',
+       'fkdivision',
        'fkidUsuario',
        'fechaFinContratoEmpleado'
 
@@ -67,6 +69,14 @@ class Empleado extends Model
     
     public function users(){
         return $this->belongsTo(User::class,'fkidUsuario');
+    }
+
+    public function CentroCosto(){
+        return $this->belongsTo(CentroCosto::class,'fkcentroCostos');
+    }
+
+    public function Division(){
+        return $this->belongsTo(Division::class,'fkdivision');
     }
 
 }

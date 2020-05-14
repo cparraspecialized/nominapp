@@ -47,6 +47,14 @@
               <label for="sueldoEmpleado"  ><p class="font-weight-normal">Salario </p></label>
               <input type="text" name="sueldoEmpleado" class="form-control" value="{{$empleado->sueldoEmpleado}}"  placeholder="Salario del empleado">
             </div>
+            <div class="col-sm-6 form-group">
+              <label for="fkcentroCostos"  ><p class="font-weight-normal">Centro de Costos </p></label>
+              {!! Form::select('fkcentroCostos',$centrocosto,null,['id'=>'fkcentroCostos','required', 'placeholder'=>'Seleccione Centro de Cosotos','class' => 'form-control'])!!}
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="fkdivision"  ><p class="font-weight-normal">Division </p></label>
+              {!! Form::select('fkdivision',$division,null,['id'=>'fkdivision','required', 'placeholder'=>'Seleccione Division','class' => 'form-control'])!!}
+            </div>
             @endif
             @if ($empleado->estadoEmpleado == 'INACTIVO')
             <div class="col-sm-6 form-group">

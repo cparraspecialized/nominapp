@@ -39,6 +39,8 @@ class storeEmpleadoRequest extends FormRequest
             'fechaIngresoEmpleado' => 'required|max:300',
             'fkidTipoContrato' => 'required|max:300',
             'fkidTipoCargo' => 'required|max:300',
+            'fkcentroCostos' => 'required|max:300',
+            'fkdivision' => 'required|max:300',
             'sueldoEmpleado' => 'integer|required',
 
         ];
