@@ -29,8 +29,8 @@ class EmpleadoController extends Controller
         $tiendas= Tienda::pluck('nombreTienda','id');
         $tipocargo= TipoCargo::pluck('descripcionTipoCargo','id');
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
-        $centrocosto= CentroCosto::pluck('area','id');
-        $division= Division::pluck('area','id');
+        $centrocosto= CentroCosto::pluck('descripcionCentroCostos','id');
+        $division= Division::pluck('descripcionDivision','id');
 
         return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato','centrocosto','division'));
 

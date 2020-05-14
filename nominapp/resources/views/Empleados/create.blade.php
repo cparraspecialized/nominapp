@@ -51,7 +51,7 @@
             </div>
             <div class="col-sm-6 form-group">
               <label for="fkcentroCostos"  ><p class="font-weight-normal">Centro de Costos </p></label>
-              {!! Form::select('fkcentroCostos',$centrocosto,null,['id'=>'fkcentroCostos','required', 'placeholder'=>'Seleccione Centro de Cosotos','class' => 'form-control'])!!}
+              {!! Form::select('fkcentroCostos',$centrocosto,null,['id'=>'fkcentroCostos','required', 'placeholder'=>'Seleccione Centro de Costos','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-6 form-group">
               <label for="fkdivision"  ><p class="font-weight-normal">Division </p></label>
