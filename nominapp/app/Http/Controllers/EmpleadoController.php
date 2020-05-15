@@ -74,7 +74,7 @@ class EmpleadoController extends Controller
                     ->where('cedula','like','%'.$cedula.'%')
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
-                    ->where('fkidTienda','like','%'.$fkidTienda.'%')
+                    ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
                     ->paginate(8);
                     
                 }else{
@@ -82,7 +82,7 @@ class EmpleadoController extends Controller
                     ->where('cedula','=',$cedula)
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
-                    ->where('fkidTienda','like','%'.$fkidTienda.'%')
+                    ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
                     ->paginate(8);
                     
                 }
