@@ -95,29 +95,48 @@ class HoraExtraController extends Controller
 
     public function store(storeHoraExtraRequest $request){
 
-        try {
+        $startDate = Carbon::now();
+        $startDay =  Carbon::now()->startOfMonth();
 
+      
+
+      
+        
+        $horaextr=new HoraExtra;
+        
+        $horasmes = HoraExtra::where('fkcedulaEmpleado','=',$request->get('fkcedulaEmpleado'))->whereBetween('fechaHorasExtra', [$startDay,$startDate])->sum('horasExtra');
+                
+        if($horasmes+$request->get('horasExtra')<48){
+        
+        try {
         DB::BeginTransaction();
 
-        $horaextr=new HoraExtra;
+     
 
+        
         $horaextr->fkidTipoHora=$request->get('fkidTipoHora');
         $horaextr->fkcedulaEmpleado=$request->get('fkcedulaEmpleado');        
         $horaextr->horasExtra=$request->get('horasExtra');
         $horaextr->fechaHorasExtra=$request->get('fechaHorasExtra');
         $horaextr->observacionHoraExtra=$request->get('observacionHoraExtra');
         $horaextr->fkidUsuario=auth()->user()->id;  
+
+        
         
         if ($horaextr->save()) {
             DB::commit();
             return redirect()->route('HoraExtras.index')->with('info','Hora extra generada con exito'); 
         }
-
+            
         } catch (Exception $e) {
             DB::rollback();
             $msg = $e->getMessage();
-            return back()->with('error', 'Error al crear la hora Extra'.$e);
+            return back()->with('error', 'Error al crear la hora Extra');
         }
+
+    }else{
+        return back()->with('error', 'El empleado tiene mas de 48 horas en este mes');
+    }
         
     }
 
