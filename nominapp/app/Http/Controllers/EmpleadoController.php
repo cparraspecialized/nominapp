@@ -238,68 +238,130 @@ class EmpleadoController extends Controller
 
     public function export(Request $request){
 
-        $cedula=trim($request->get('cedula'));
-        $nombreEmpleado=trim($request->get('nombreEmpleado'));
-        $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
-        $fkidTienda=trim($request->get('fkidTienda'));
-        if($cedula == ""){
-            $empleados =DB::table('empleados')
-            ->join('tiendas','fkidTienda','=','tiendas.id')
-            ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
-            ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
-            ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
-            ->leftjoin('divisiones','fkdivision','=','divisiones.id')
-            ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
-            ->where('empleados.cedula','like','%'.$cedula.'%')
-            ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
-            ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
-            ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
-            ->select(   'empleados.cedula',
-                        'empleados.nombreEmpleado',
-                        'empleados.apellidoEmpleado',
-                        'tiendas.nombreTienda',
-                        'empleados.fechaIngresoEmpleado',
-                        'empleados.fechaFinContratoEmpleado',
-                        'tipocargo.descripcionTipoCargo',
-                        'tipocontrato.descripcionTipoContrato',
-                        'empleados.sueldoEmpleado',
-                        'empleados.estadoEmpleado',
-                        'empleados.fechaRetiroEmpleado',
-                        'centrocostos.descripcionCentroCostos',
-                        'divisiones.descripcionDivision',
-                        'tiporetiro.descripcionTipoRetiro'
-                        )
-            ->get();
+        if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
+            $cedula=trim($request->get('cedula'));
+            $nombreEmpleado=trim($request->get('nombreEmpleado'));
+            $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+            $fkidTienda=trim($request->get('fkidTienda'));
+            if($cedula == ""){
+                $empleados =DB::table('empleados')
+                ->join('tiendas','fkidTienda','=','tiendas.id')
+                ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
+                ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+                ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
+                ->leftjoin('divisiones','fkdivision','=','divisiones.id')
+                ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
+                ->where('empleados.cedula','like','%'.$cedula.'%')
+                ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
+                ->select(   'empleados.cedula',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'empleados.fechaIngresoEmpleado',
+                            'empleados.fechaFinContratoEmpleado',
+                            'tipocargo.descripcionTipoCargo',
+                            'tipocontrato.descripcionTipoContrato',
+                            'empleados.estadoEmpleado',
+                            'empleados.fechaRetiroEmpleado',
+                            'centrocostos.descripcionCentroCostos',
+                            'divisiones.descripcionDivision',
+                            'tiporetiro.descripcionTipoRetiro'
+                            )
+                ->get();
+            }else{
+                $empleados =DB::table('empleados')
+                ->join('tiendas','fkidTienda','=','tiendas.id')
+                ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
+                ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+                ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
+                ->leftjoin('divisiones','fkdivision','=','divisiones.id')
+                ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
+                ->where('empleados.cedula','=',$cedula)
+                ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
+                ->select(   'empleados.cedula',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'empleados.fechaIngresoEmpleado',
+                            'empleados.fechaFinContratoEmpleado',
+                            'tipocargo.descripcionTipoCargo',
+                            'tipocontrato.descripcionTipoContrato',
+                            'empleados.sueldoEmpleado',
+                            'empleados.estadoEmpleado',
+                            'empleados.fechaRetiroEmpleado',
+                            'centrocostos.descripcionCentroCostos',
+                            'divisiones.descripcionDivision',
+                            'tiporetiro.descripcionTipoRetiro'
+                            )
+                ->get();
+            }
         }else{
-            $empleados =DB::table('empleados')
-            ->join('tiendas','fkidTienda','=','tiendas.id')
-            ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
-            ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
-            ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
-            ->leftjoin('divisiones','fkdivision','=','divisiones.id')
-            ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
-            ->where('empleados.cedula','=',$cedula)
-            ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
-            ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
-            ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
-            ->select(   'empleados.cedula',
-                        'empleados.nombreEmpleado',
-                        'empleados.apellidoEmpleado',
-                        'tiendas.nombreTienda',
-                        'empleados.fechaIngresoEmpleado',
-                        'empleados.fechaFinContratoEmpleado',
-                        'tipocargo.descripcionTipoCargo',
-                        'tipocontrato.descripcionTipoContrato',
-                        'empleados.sueldoEmpleado',
-                        'empleados.estadoEmpleado',
-                        'empleados.fechaRetiroEmpleado',
-                        'centrocostos.descripcionCentroCostos',
-                        'divisiones.descripcionDivision',
-                        'tiporetiro.descripcionTipoRetiro'
-                        )
-            ->get();
+            $cedula=trim($request->get('cedula'));
+            $nombreEmpleado=trim($request->get('nombreEmpleado'));
+            $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+            $fkidTienda=trim($request->get('fkidTienda'));
+            if($cedula == ""){
+                $empleados =DB::table('empleados')
+                ->join('tiendas','fkidTienda','=','tiendas.id')
+                ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
+                ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+                ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
+                ->leftjoin('divisiones','fkdivision','=','divisiones.id')
+                ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
+                ->where('empleados.cedula','like','%'.$cedula.'%')
+                ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+                ->select(   'empleados.cedula',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'empleados.fechaIngresoEmpleado',
+                            'empleados.fechaFinContratoEmpleado',
+                            'tipocargo.descripcionTipoCargo',
+                            'tipocontrato.descripcionTipoContrato',
+                            'empleados.sueldoEmpleado',
+                            'empleados.estadoEmpleado',
+                            'empleados.fechaRetiroEmpleado',
+                            'centrocostos.descripcionCentroCostos',
+                            'divisiones.descripcionDivision',
+                            'tiporetiro.descripcionTipoRetiro'
+                            )
+                ->get();
+            }else{
+                $empleados =DB::table('empleados')
+                ->join('tiendas','fkidTienda','=','tiendas.id')
+                ->join('tipocargo','fkidTipoCargo','=','tipocargo.id')
+                ->join('tipocontrato','fkidTipoContrato','=','tipocontrato.id')
+                ->leftjoin('centrocostos','fkcentroCostos','=','centrocostos.id')
+                ->leftjoin('divisiones','fkdivision','=','divisiones.id')
+                ->leftjoin('tiporetiro','fkidTipoRetiro','=','tiporetiro.id')
+                ->where('empleados.cedula','=',$cedula)
+                ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+                ->select(   'empleados.cedula',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'empleados.fechaIngresoEmpleado',
+                            'empleados.fechaFinContratoEmpleado',
+                            'tipocargo.descripcionTipoCargo',
+                            'tipocontrato.descripcionTipoContrato',
+                            'empleados.sueldoEmpleado',
+                            'empleados.estadoEmpleado',
+                            'empleados.fechaRetiroEmpleado',
+                            'centrocostos.descripcionCentroCostos',
+                            'divisiones.descripcionDivision',
+                            'tiporetiro.descripcionTipoRetiro'
+                            )
+                ->get();
+            }
         }
-        
 
         $hoy = getdate();
 

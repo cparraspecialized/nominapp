@@ -509,8 +509,10 @@ class ComposerStaticInita3d4232ddbc819224ddd2c94f11a9982
     );
 
     public static $classMap = array (
+        'App\\CentroCosto' => __DIR__ . '/../..' . '/app/CentroCosto.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Departamento' => __DIR__ . '/../..' . '/app/Departamento.php',
+        'App\\Division' => __DIR__ . '/../..' . '/app/Division.php',
         'App\\Empleado' => __DIR__ . '/../..' . '/app/Empleado.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\EmpleadoExport' => __DIR__ . '/../..' . '/app/Exports/EmpleadoExport.php',
@@ -551,10 +553,10 @@ class ComposerStaticInita3d4232ddbc819224ddd2c94f11a9982
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\StoreRolRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreRolRequest.php',
-        'App\\Http\\Requests\\TiendaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeTiendaRequest.php',
         'App\\Http\\Requests\\storeEmpleadoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeEmpleadoRequest.php',
         'App\\Http\\Requests\\storeHoraExtraRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeHoraExtraRequest.php',
         'App\\Http\\Requests\\storeNovedadRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeNovedadRequest.php',
+        'App\\Http\\Requests\\storeTiendaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeTiendaRequest.php',
         'App\\Http\\Requests\\storeTipoCargoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeTipoCargoRequest.php',
         'App\\Http\\Requests\\storeTipoContratoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeTipoContratoRequest.php',
         'App\\Http\\Requests\\storeTipoHoraRequest' => __DIR__ . '/../..' . '/app/Http/Requests/storeTipoHoraRequest.php',

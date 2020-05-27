@@ -134,7 +134,13 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Cargos</p>
                     </a>
-                  </li>                                             
+                  </li>      
+                  <li class="nav-item">
+                    <a href="{{url('Salarios/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Salarios</p>
+                    </a>
+                  </li>                                        
                 </ul>
               </li>  
               <li class="nav-item has-treeview">

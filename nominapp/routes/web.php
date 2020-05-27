@@ -30,6 +30,7 @@ Route::resource('TipoContratos', 'TipoContratoController')->middleware('auth');
 Route::resource('TipoRetiros', 'TipoRetiroController')->middleware('auth');
 Route::resource('TipoCargos', 'TipoCargoController')->middleware('auth');
 Route::resource('Rol', 'RolController')->middleware('auth');
+Route::resource('Salarios', 'SalarioController')->middleware('auth');
 
 
 Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status');
@@ -46,3 +47,4 @@ Route::get('ExportTipoContrato', 'TipoContratoController@export');
 Route::get('ExportTipoCargo', 'TipoCargoController@export');
 Route::get('ExportTipoNovedad', 'TipoNovedadController@export');
 Route::get('ExportTienda', 'TiendaController@export');
+Route::get('ExportSalario', 'SalarioController@export');

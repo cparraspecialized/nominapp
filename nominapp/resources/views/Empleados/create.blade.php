@@ -37,17 +37,13 @@
                 Requerido en caso de que el contrato sea termino fijo.
               </small>
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <label for="fkidTipoCargo"  ><p class="font-weight-normal">Cargo </p></label>
               {!! Form::select('fkidTipoCargo',$tipocargo,null,['id'=>'fkidTipoCargo', 'required','placeholder'=>'Seleccione Cargo','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <label for="fkidTipoContrato"  ><p class="font-weight-normal">Contrato </p></label>
               {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato','required', 'placeholder'=>'Seleccione Contrato','class' => 'form-control'])!!}
-            </div>
-            <div class="col-sm-4 form-group">
-              <label for="sueldoEmpleado"  ><p class="font-weight-normal">Salario </p></label>
-              <input type="number" name="sueldoEmpleado" class="form-control" required placeholder="Salario del empleado">
             </div>
             <div class="col-sm-6 form-group">
               <label for="fkcentroCostos"  ><p class="font-weight-normal">Centro de Costos </p></label>

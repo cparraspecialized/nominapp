@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\CentroCosto' => $baseDir . '/app/CentroCosto.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Departamento' => $baseDir . '/app/Departamento.php',
+    'App\\Division' => $baseDir . '/app/Division.php',
     'App\\Empleado' => $baseDir . '/app/Empleado.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Exports\\EmpleadoExport' => $baseDir . '/app/Exports/EmpleadoExport.php',
@@ -48,10 +50,10 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\StoreRolRequest' => $baseDir . '/app/Http/Requests/StoreRolRequest.php',
-    'App\\Http\\Requests\\TiendaRequest' => $baseDir . '/app/Http/Requests/storeTiendaRequest.php',
     'App\\Http\\Requests\\storeEmpleadoRequest' => $baseDir . '/app/Http/Requests/storeEmpleadoRequest.php',
     'App\\Http\\Requests\\storeHoraExtraRequest' => $baseDir . '/app/Http/Requests/storeHoraExtraRequest.php',
     'App\\Http\\Requests\\storeNovedadRequest' => $baseDir . '/app/Http/Requests/storeNovedadRequest.php',
+    'App\\Http\\Requests\\storeTiendaRequest' => $baseDir . '/app/Http/Requests/storeTiendaRequest.php',
     'App\\Http\\Requests\\storeTipoCargoRequest' => $baseDir . '/app/Http/Requests/storeTipoCargoRequest.php',
     'App\\Http\\Requests\\storeTipoContratoRequest' => $baseDir . '/app/Http/Requests/storeTipoContratoRequest.php',
     'App\\Http\\Requests\\storeTipoHoraRequest' => $baseDir . '/app/Http/Requests/storeTipoHoraRequest.php',

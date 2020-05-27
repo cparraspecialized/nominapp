@@ -169,53 +169,104 @@ class NovedadController extends Controller
 
     public function export(Request $request){
 
-        $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
-        $fechaInicioNovedad=trim($request->get('fechaInicioNovedad'));
-        $fechaFinNovedad=trim($request->get('fechaFinNovedad'));
-        $fkTipoNovedad=trim($request->get('fkTipoNovedad'));
+        if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
 
-        if($fechaInicioNovedad == null){
-            $fechaInicioNovedad='01/01/1900';
-        }
+            $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
+            $fechaInicioNovedad=trim($request->get('fechaInicioNovedad'));
+            $fechaFinNovedad=trim($request->get('fechaFinNovedad'));
+            $fkTipoNovedad=trim($request->get('fkTipoNovedad'));
 
-        if($fkcedulaEmpleado == ""){
-            $novedades =DB::table('novedades')
-            ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
-            ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
-            ->join('tipo_novedades','fkTipoNovedad','=','tipo_novedades.id')
-            ->where('novedades.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
-            ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
-            ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
-            ->select(   'novedades.fkcedulaEmpleado',
-                        'empleados.nombreEmpleado',
-                        'empleados.apellidoEmpleado',
-                        'tiendas.nombreTienda',
-                        'tipo_novedades.descripcionTipoNovedad',
-                        'novedades.fechaNovedad',
-                        'novedades.observacionNovedad'
-                        )
-            ->get();
+            if($fechaInicioNovedad == null){
+                $fechaInicioNovedad='01/01/1900';
+            }
 
+            if($fkcedulaEmpleado == ""){
+                $novedades =DB::table('novedades')
+                ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+                ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
+                ->join('tipo_novedades','fkTipoNovedad','=','tipo_novedades.id')
+                ->where('novedades.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+                ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
+                ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->select(   'novedades.fkcedulaEmpleado',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'tipo_novedades.descripcionTipoNovedad',
+                            'novedades.fechaNovedad',
+                            'novedades.observacionNovedad'
+                            )
+                ->get();
+
+            }else{
+
+                $novedades =DB::table('novedades')
+                ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+                ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
+                ->join('tipo_novedades','fkTipoNovedad','=','tipo_novedades.id')
+                ->where('novedades.fkcedulaEmpleado','=',$fkcedulaEmpleado)
+                ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
+                ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->select(   'novedades.fkcedulaEmpleado',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'tipo_novedades.descripcionTipoNovedad',
+                            'novedades.fechaNovedad',
+                            'novedades.observacionNovedad'
+                            )
+                ->get();
+            }
         }else{
+            $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
+            $fechaInicioNovedad=trim($request->get('fechaInicioNovedad'));
+            $fechaFinNovedad=trim($request->get('fechaFinNovedad'));
+            $fkTipoNovedad=trim($request->get('fkTipoNovedad'));
 
-            $novedades =DB::table('novedades')
-            ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
-            ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
-            ->join('tipo_novedades','fkTipoNovedad','=','tipo_novedades.id')
-            ->where('novedades.fkcedulaEmpleado','=',$fkcedulaEmpleado)
-            ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
-            ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
-            ->select(   'novedades.fkcedulaEmpleado',
-                        'empleados.nombreEmpleado',
-                        'empleados.apellidoEmpleado',
-                        'tiendas.nombreTienda',
-                        'tipo_novedades.descripcionTipoNovedad',
-                        'novedades.fechaNovedad',
-                        'novedades.observacionNovedad'
-                        )
-            ->get();
+            if($fechaInicioNovedad == null){
+                $fechaInicioNovedad='01/01/1900';
+            }
+            
+            if($fkcedulaEmpleado == ""){
+                $novedades =DB::table('novedades')
+                ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+                ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
+                ->join('tipo_novedades','fkTipoNovedad','=','tipo_novedades.id')
+                ->where('novedades.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
+                ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
+                ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+                ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->select(   'novedades.fkcedulaEmpleado',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'tipo_novedades.descripcionTipoNovedad',
+                            'novedades.fechaNovedad',
+                            'novedades.observacionNovedad'
+                            )
+                ->get();
+
+            }else{
+
+                $novedades =DB::table('novedades')
+                ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
+                ->join('tiendas','empleados.fkidTienda','=','tiendas.id')
+                ->join('tipo_novedades','fkTipoNovedad','=','tipo_novedades.id')
+                ->where('novedades.fkcedulaEmpleado','=',$fkcedulaEmpleado)
+                ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
+                ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+                ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->select(   'novedades.fkcedulaEmpleado',
+                            'empleados.nombreEmpleado',
+                            'empleados.apellidoEmpleado',
+                            'tiendas.nombreTienda',
+                            'tipo_novedades.descripcionTipoNovedad',
+                            'novedades.fechaNovedad',
+                            'novedades.observacionNovedad'
+                            )
+                ->get();
+            } 
         }
-
 
        
         
@@ -232,6 +283,6 @@ class NovedadController extends Controller
         return Excel::download(new NovedadExport($novedades), 'Novedades'.$d.$m.$y.'.xlsx');
 
    
-}   
+    }   
 
 }
