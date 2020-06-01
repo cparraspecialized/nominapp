@@ -31,6 +31,7 @@ class EmpleadoController extends Controller
         $tipocontrato= TipoContrato::pluck('descripcionTipoContrato','id');
         $centrocosto= CentroCosto::pluck('descripcionCentroCostos','id');
         $division= Division::pluck('descripcionDivision','id');
+    
 
         return view('Empleados.create',compact('tiendas','tipocargo','tipocontrato','centrocosto','division'));
 
@@ -105,10 +106,10 @@ class EmpleadoController extends Controller
             $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
-            $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
             $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');            
             $empleado->fkcentroCostos=$request->get('fkcentroCostos');
             $empleado->fkdivision=$request->get('fkdivision');
+            $empleado->tipoPosicion=$request->get('tipoPosicion');
             $empleado->fechaRetiroEmpleado=null;
             $empleado->fkidTipoRetiro=null;
             $empleado->fkidUsuario=auth()->user()->id;  
@@ -154,7 +155,6 @@ class EmpleadoController extends Controller
             $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
-            $empleado->sueldoEmpleado=$request->get('sueldoEmpleado');
             $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
             $empleado->fkcentroCostos=$request->get('fkcentroCostos');
             $empleado->fkdivision=$request->get('fkdivision');

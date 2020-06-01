@@ -37,21 +37,30 @@
                 Requerido en caso de que el contrato sea termino fijo.
               </small>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkidTipoCargo"  ><p class="font-weight-normal">Cargo </p></label>
               {!! Form::select('fkidTipoCargo',$tipocargo,null,['id'=>'fkidTipoCargo', 'required','placeholder'=>'Seleccione Cargo','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkidTipoContrato"  ><p class="font-weight-normal">Contrato </p></label>
               {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato','required', 'placeholder'=>'Seleccione Contrato','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkcentroCostos"  ><p class="font-weight-normal">Centro de Costos </p></label>
               {!! Form::select('fkcentroCostos',$centrocosto,null,['id'=>'fkcentroCostos','required', 'placeholder'=>'Seleccione Centro de Costos','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-6 form-group">
               <label for="fkdivision"  ><p class="font-weight-normal">Division </p></label>
               {!! Form::select('fkdivision',$division,null,['id'=>'fkdivision','required', 'placeholder'=>'Seleccione Division','class' => 'form-control'])!!}
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="tipoPosicion"  ><p class="font-weight-normal">¿Presupuestada? </p></label>
+              <select class="form-control" name="tipoPosicion" required>
+                <option value=''>Seleccionar...</option>
+                <option value='Presupuestada'>Presupuestada</option>
+                <option value='Extra'>Extra</option>
+              </select>
+            </div>
             </div>
             </div>
            
