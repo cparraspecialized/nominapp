@@ -37,18 +37,16 @@ class EmpleadoController extends Controller
 
     }
 
-    public function index(Request $request){
-
-        
+    public function index(Request $request){        
 
         if($request){
-            if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
+            if (auth()->user()->rol['tipo_Rol'] == 'Administrador' ) {
                 $cedula=trim($request->get('cedula'));
                 $nombreEmpleado=trim($request->get('nombreEmpleado'));
                 $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
                 $fkidTienda=trim($request->get('fkidTienda'));
                 if($cedula == ""){                    
-                    $empleados =Empleado::orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
                     ->where('cedula','like','%'.$cedula.'%')
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -56,7 +54,7 @@ class EmpleadoController extends Controller
                     ->paginate(8);
                     
                 }else{
-                    $empleados =Empleado::orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
                     ->where('cedula','=',$cedula)
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -71,7 +69,7 @@ class EmpleadoController extends Controller
                 $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
                 $fkidTienda=trim($request->get('fkidTienda'));
                 if($cedula == ""){                    
-                    $empleados =Empleado::orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
                     ->where('cedula','like','%'.$cedula.'%')
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -79,7 +77,7 @@ class EmpleadoController extends Controller
                     ->paginate(8);
                     
                 }else{
-                    $empleados =Empleado::orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
                     ->where('cedula','=',$cedula)
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -90,6 +88,10 @@ class EmpleadoController extends Controller
                 return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));
             }
         }
+    }    
+
+    public function validart(Request $request){
+
     }
 
     public function store(storeEmpleadoRequest $request){

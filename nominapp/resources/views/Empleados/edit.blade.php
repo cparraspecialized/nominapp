@@ -43,10 +43,6 @@
               <label for="fkidTipoContrato"  ><p class="font-weight-normal">Contrato </p></label>
               {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato', 'placeholder'=>'Seleccione Contrato','value'=>'{{$empleado->fkidTipoContrato}}','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-4 form-group">
-              <label for="sueldoEmpleado"  ><p class="font-weight-normal">Salario </p></label>
-              <input type="text" name="sueldoEmpleado" class="form-control" value="{{$empleado->sueldoEmpleado}}"  placeholder="Salario del empleado">
-            </div>
             <div class="col-sm-6 form-group">
               <label for="fkcentroCostos"  ><p class="font-weight-normal">Centro de Costos </p></label>
               {!! Form::select('fkcentroCostos',$centrocosto,null,['id'=>'fkcentroCostos','required', 'placeholder'=>'Seleccione Centro de Costos','class' => 'form-control'])!!}

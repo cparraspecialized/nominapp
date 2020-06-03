@@ -140,7 +140,13 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Salarios</p>
                     </a>
-                  </li>                                        
+                  </li>  
+                  <li class="nav-item">
+                    <a href="{{URL('AprobacionesEmpleados/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Aprobaciones</p>
+                    </a>
+                  </li>                                      
                 </ul>
               </li>  
               <li class="nav-item has-treeview">
@@ -164,7 +170,12 @@
                       <p>Consultar Tipos de <br> novedades</p>
                     </a>
                   </li>
-                  
+                  <li class="nav-item">
+                    <a href="{{url('AprobacionesNovedades/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Aprobacion Novedad</p>
+                    </a>
+                  </li>
                 </ul>
               </li>
          
@@ -189,7 +200,12 @@
                   <p>Consultar Tipo Hora Extra</p>
                 </a>
               </li>
-                       
+              <li class="nav-item">
+                <a href="{{url('AprobacionesHorasExtras/')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Aprobacion Hora Extra</p>
+                </a>
+              </li>     
             </ul>
           </li>
           

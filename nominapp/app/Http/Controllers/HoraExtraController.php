@@ -52,13 +52,13 @@ class HoraExtraController extends Controller
                 $fechaHorasExtra='01/01/1900';
             }
             if($fkcedulaEmpleado == ""){
-                $horasextras =HoraExtra::orderBy('id','desc')
+                $horasextras =HoraExtra::where('validacionHora','=','1')->orderBy('id','desc')
                 ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
                 ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
                 ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
                 ->paginate(10);
             }else{
-                $horasextras =HoraExtra::orderBy('id','desc')
+                $horasextras =HoraExtra::where('validacionHora','=','1')->orderBy('id','desc')
                 ->where('fkcedulaEmpleado','=',$fkcedulaEmpleado)
                 ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')
                 ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
@@ -81,7 +81,7 @@ class HoraExtraController extends Controller
             }
 
 
-            $horasextras =HoraExtra::orderBy('id','desc')
+            $horasextras =HoraExtra::where('validacionHora','=','1')->orderBy('id','desc')
             ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
             ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
             ->where('fkidTipoHora','like','%'.$fkidTipoHora.'%')

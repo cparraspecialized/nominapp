@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col.sm-12 col-xs-12">
         <h3>Consulta de Empleados</h3>
-        @include('Empleados.search') 
+    
     </div>
 </div>
 
@@ -29,15 +29,10 @@
                     <th>Fecha de Ingreso</th>
                     <th>Cargo</th>
                     <th>Contrato</th>
-                    <th>Fecha de Finalizacion de contrato</th>
-                    <th>Estado</th>
-                    <th>Fecha de Retiro</th>
-                    <th>Motivo de Retiro</th>
                     <th>Centro de Costos</th>
                     <th>Division</th>
                     <th>Usuario que modifico</th>
-                    <th>Retirar/Ingresar</th>
-                    <th>Editar Información</th>
+                    <th>Validacion</th>
                 </thead>
                 @foreach ($empleados as $emp)
                 <tr>
@@ -48,25 +43,16 @@
                     <td>{{$emp->fechaIngresoEmpleado}}</td>
                     <td>{{$emp->tipocargo['descripcionTipoCargo']}}</td>
                     <td>{{$emp->tipocontrato['descripcionTipoContrato']}}</td>
-                    <td>{{$emp->fechaFinContratoEmpleado}}</td>
-                    <td>{{$emp->estadoEmpleado}}</td>
-                    <td>{{$emp->fechaRetiroEmpleado}}</td>
-                    <td>{{$emp->tiporetiro['descripcionTipoRetiro']}}</td>
                     <td>{{$emp->centrocosto['descripcionCentroCostos']}}</td>
                     <td>{{$emp->division['descripcionDivision']}}</td>
                     <td>{{$emp->users['name']}}</td>
-                    @if ($emp->estadoEmpleado == 'ACTIVO')
-                    <td><a href="{{route('status',['id' => $emp->cedula])}}"><button class="btn btn-outline-danger">Retirar</button></td>
+                    @if($emp->validacionEmpleado == '0')
+                    <td><a href="{{route('statusempleado',['id' => $emp->cedula])}}"><button class="btn btn-outline-success">Aprobar</button></td>
                     @endif
-                    @if ($emp->estadoEmpleado == 'INACTIVO')
-                    <td><a href="{{route('status',['id' => $emp->cedula])}}"><button class="btn btn-outline-success">Ingresar</button></td>
-                    @endif
-                    <td><a href="{{route('Empleados.edit', $emp->cedula)}}"><button class="btn btn-outline-primary">Editar</button></td>
-                  
                 </tr>
                 @endforeach
             </table>
-            {{ $empleados->render() }} 
+
         </div>
     </div>
 </div>

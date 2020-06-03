@@ -31,12 +31,22 @@ Route::resource('TipoRetiros', 'TipoRetiroController')->middleware('auth');
 Route::resource('TipoCargos', 'TipoCargoController')->middleware('auth');
 Route::resource('Rol', 'RolController')->middleware('auth');
 Route::resource('Salarios', 'SalarioController')->middleware('auth');
+Route::resource('AprobacionesEmpleados', 'AprobacionController')->middleware('auth');
+Route::resource('AprobacionesNovedades', 'AprobacionNovedadController')->middleware('auth');
+Route::resource('AprobacionesHorasExtras', 'AprobacionHoraExtraController')->middleware('auth');
+//Route::get('/home', 'ReportesController@index');
 
 
 Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status');
 Route::post('Empleados/changestatus/', 'EmpleadoController@changeStatus')->name('changestatus');
 Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado');
 Route::post('Users/edit/', 'UserController@update')->name('edituser');
+Route::get('AprobacionesEmpleados/statusempleado/{id}', 'AprobacionController@statusempleado')->name('statusempleado');
+Route::post('AprobacionesEmpleados/changestatusempleado/', 'AprobacionController@changestatusempleado')->name('changestatusempleado');
+Route::get('AprobacionesNovedades/statusnovedad/{id}', 'AprobacionNovedadController@statusnovedad')->name('statusnovedad');
+Route::post('AprobacionesNovedades/changestatusnovedad/', 'AprobacionNovedadController@changestatusnovedad')->name('changestatusnovedad');
+Route::get('AprobacionesHorasExtras/statushora/{id}', 'AprobacionHoraExtraController@statushora')->name('statushora');
+Route::post('AprobacionesHorasExtras/changestatushora/', 'AprobacionHoraExtraController@changestatushora')->name('changestatushora');
 
 Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 Route::get('ExportNovedades', 'NovedadController@export'); 

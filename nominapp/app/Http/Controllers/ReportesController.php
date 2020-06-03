@@ -12,7 +12,6 @@ use DB;
 class ReportesController extends Controller
 {
     public function index(Request $request){
-        $empleados =Empleado::orderBy('created_at','desc')->count();
-        return view('home',["empleados"=>$empleados]);
+        
     }
 }

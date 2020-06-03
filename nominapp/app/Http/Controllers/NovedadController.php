@@ -52,14 +52,14 @@ class NovedadController extends Controller
             }
 
             if($fkcedulaEmpleado == ""){
-                $novedades =Novedad::orderBy('id','desc')
+                $novedades =Novedad::where('validacionNovedad','=','1')->orderBy('id','desc')
                 ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
                 ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
                 ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
                 ->paginate(10);
             }else{
 
-                $novedades =Novedad::orderBy('id','desc')
+                $novedades =Novedad::where('validacionNovedad','=','1')->orderBy('id','desc')
                 ->where('fkcedulaEmpleado','=',$fkcedulaEmpleado)
                 ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
                 ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
@@ -89,7 +89,7 @@ class NovedadController extends Controller
             
             if($fkcedulaEmpleado == ""){
 
-            $novedades =Novedad::orderBy('id','desc')
+            $novedades =Novedad::where('validacionNovedad','=','1')->orderBy('id','desc')
             ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
             ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
             ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
@@ -98,7 +98,7 @@ class NovedadController extends Controller
             ->paginate(10);
 
         }else{
-            $novedades =Novedad::orderBy('id','desc')
+            $novedades =Novedad::where('validacionNovedad','=','1')->orderBy('id','desc')
             ->join('empleados','fkcedulaEmpleado','=','empleados.cedula')
             ->where('fkcedulaEmpleado','=',$fkcedulaEmpleado)
             ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
@@ -124,7 +124,7 @@ class NovedadController extends Controller
             $fechaInicioNovedad='01/01/1900';
         }
 
-        $novedades =Novedad::orderBy('id','desc')
+        $novedades =Novedad::where('validacionNovedad','=','1')->orderBy('id','desc')
         ->where('fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
         ->where('fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
         ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
