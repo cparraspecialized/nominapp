@@ -188,6 +188,7 @@ class NovedadController extends Controller
                 ->where('novedades.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
                 ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
                 ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->where('validacionNovedad','=','1')
                 ->select(   'novedades.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -207,6 +208,7 @@ class NovedadController extends Controller
                 ->where('novedades.fkcedulaEmpleado','=',$fkcedulaEmpleado)
                 ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
                 ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->where('validacionNovedad','=','1')
                 ->select(   'novedades.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -236,6 +238,7 @@ class NovedadController extends Controller
                 ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
                 ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
                 ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->where('validacionNovedad','=','1')
                 ->select(   'novedades.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -256,6 +259,7 @@ class NovedadController extends Controller
                 ->where('novedades.fkTipoNovedad','like','%'.$fkTipoNovedad.'%')
                 ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
                 ->whereBetween('fechaNovedad', [Carbon::parse($fechaInicioNovedad)->startOfDay(), Carbon::parse($fechaFinNovedad)->endOfDay()])
+                ->where('validacionNovedad','=','1')
                 ->select(   'novedades.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',

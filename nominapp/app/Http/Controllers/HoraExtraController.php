@@ -161,6 +161,7 @@ class HoraExtraController extends Controller
                 ->where('hora_extras.fkcedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')
                 ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
                 ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+                ->where('validacionHora','=','1')
                 ->select(   'hora_extras.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -181,6 +182,7 @@ class HoraExtraController extends Controller
                 ->where('hora_extras.fkcedulaEmpleado','=',$fkcedulaEmpleado)
                 ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
                 ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+                ->where('validacionHora','=','1')
                 ->select(   'hora_extras.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -208,6 +210,7 @@ class HoraExtraController extends Controller
                 ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
                 ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
                 ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+                ->where('validacionHora','=','1')
                 ->select(   'hora_extras.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -230,6 +233,7 @@ class HoraExtraController extends Controller
                 ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
                 ->where('hora_extras.fkidTipoHora','like','%'.$fkidTipoHora.'%')
                 ->whereBetween('fechaHorasExtra', [Carbon::parse($fechaHorasExtra)->startOfDay(), Carbon::parse($fechafinHorasExtra)->endOfDay()])
+                ->where('validacionHora','=','1')
                 ->select(   'hora_extras.fkcedulaEmpleado',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',

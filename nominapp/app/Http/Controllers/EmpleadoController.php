@@ -257,6 +257,7 @@ class EmpleadoController extends Controller
                 ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
                 ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
                 ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
+                ->where('validacionEmpleado','=','1')
                 ->select(   'empleados.cedula',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -284,6 +285,7 @@ class EmpleadoController extends Controller
                 ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
                 ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
                 ->where('empleados.fkidTienda','like','%'.$fkidTienda.'%')
+                ->where('validacionEmpleado','=','1')
                 ->select(   'empleados.cedula',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -318,6 +320,7 @@ class EmpleadoController extends Controller
                 ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
                 ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
                 ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+                ->where('validacionEmpleado','=','1')
                 ->select(   'empleados.cedula',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
@@ -346,6 +349,7 @@ class EmpleadoController extends Controller
                 ->where('empleados.nombreEmpleado','like','%'.$nombreEmpleado.'%')
                 ->where('empleados.apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
                 ->where('empleados.fkidTienda','=',auth()->user()->tiendas['id'])
+                ->where('validacionEmpleado','=','1')
                 ->select(   'empleados.cedula',
                             'empleados.nombreEmpleado',
                             'empleados.apellidoEmpleado',
