@@ -1,5 +1,5 @@
 <?php
-
+use App\Empleado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    
+    $presupuestada =Empleado::orderBy('created_at','desc')
+    ->Where('empleados.tipoPosicion','=','Presupuestada')->count();
+    $extra =Empleado::orderBy('created_at','desc')
+    ->Where('empleados.tipoPosicion','=','extra')->count();
+    return view('home',["presupuestada"=>$presupuestada,"extra"=>$extra]);
 })->middleware('auth');
 
 Auth::routes();
