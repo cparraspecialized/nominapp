@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\SalarioFormRequest;
 use App\Salario;
 use App\Empleado;
-use App\Http\Requests\storeSalarioRequest;
+use App\Http\Requests\StoreSalarioRequest;
 use App\Exports\SalarioExport;
 use Carbon\Carbon;
 use Exception;
@@ -36,7 +36,7 @@ class SalarioController extends Controller
         return view('Salarios.index', compact('salario','empleados'));       
     }
 
-    public function store(storeSalarioRequest $request){
+    public function store(Request $request){
 
         try {
 
