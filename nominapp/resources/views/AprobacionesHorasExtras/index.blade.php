@@ -42,10 +42,11 @@
                         </tr>
                         @endforeach
                     </table>
+                    {{ $horasextras->render() }}
                 </div></h4>
             </div>
         </div>
-            
+        
       </div>
     </div>
   </div>

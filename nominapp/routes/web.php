@@ -47,6 +47,8 @@ Route::get('Empleados/status/{id}', 'EmpleadoController@status')->name('status')
 Route::post('Empleados/changestatus/', 'EmpleadoController@changeStatus')->name('changestatus');
 Route::post('Empleados/edit/', 'EmpleadoController@update')->name('editempleado');
 Route::post('Users/edit/', 'UserController@update')->name('edituser');
+Route::get('Salarios/editsalario/{id}', 'SalarioController@editsalario')->name('editsal');
+Route::post('Salarios/update/', 'SalarioController@update')->name('updatesal');
 Route::get('AprobacionesEmpleados/statusempleado/{id}', 'AprobacionController@statusempleado')->name('statusempleado');
 Route::post('AprobacionesEmpleados/changestatusempleado/', 'AprobacionController@changestatusempleado')->name('changestatusempleado');
 Route::get('AprobacionesNovedades/statusnovedad/{id}', 'AprobacionNovedadController@statusnovedad')->name('statusnovedad');

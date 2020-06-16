@@ -25,10 +25,9 @@
                             <th>Salario Base</th>
                             <th>Bonificacion</th>
                             <th>Auxilio de transporte</th>
-                            <th>Auxilio Capacitacion</th>
-                            <th>Auxilio Comunicacion</th>
-                            <th>Gasto Representacion</th>
                             <th>Auxilio Medicina Prepagada</th>
+                            <th>Usuario</th>
+                            <th>Editar</th>
                         </thead>
                         @foreach ($salario as $sal)
                         <tr>
@@ -37,10 +36,9 @@
                             <td>{{$sal->salarioBase}}</td>
                             <td>{{$sal->bonificacion}}</td>
                             <td>{{$sal->auxilioTransporte}}</td>
-                            <td>{{$sal->auxilioCapacitacion}}</td>
-                            <td>{{$sal->auxilioComunicacion}}</td>
-                            <td>{{$sal->gastoRepresentacion}}</td>
                             <td>{{$sal->auxilioMedicinaPrepagada}}</td>
+                            <td>{{$sal->users['name']}}</td>
+                            <td><a href="{{route('editsal', $sal->id)}}"><button class="btn btn-outline-primary">Editar</button></td>
                         </tr>
                         @endforeach
                     </table>

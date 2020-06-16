@@ -15,7 +15,7 @@ class AprobacionNovedadController extends Controller
     
     public function index(Request $request){
 
-        $novedades = Novedad::where('validacionNovedad','0')->orderBy('id','desc')->get();
+        $novedades = Novedad::where('validacionNovedad','0')->orderBy('id','desc')->paginate(8);
             
         return view('AprobacionesNovedades.index',["novedades"=>$novedades]);
     }
@@ -35,7 +35,7 @@ class AprobacionNovedadController extends Controller
             $novedades->observacionNovedad=$request->get('observacionNovedad');
             $novedades->validacionNovedad = '1'; 
             $novedades->update();            
-            return Redirect::to('Novedades'); 
+            return Redirect::to('AprobacionNovedades'); 
         }
         return Redirect::to('AprobacionNovedades'); 
     }

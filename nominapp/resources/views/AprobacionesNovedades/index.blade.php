@@ -41,6 +41,7 @@
                         </tr>
                         @endforeach
                     </table>
+                    {{ $novedades->render() }}
                 </div></h4>
             </div>
         </div>

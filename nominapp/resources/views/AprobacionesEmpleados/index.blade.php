@@ -29,8 +29,6 @@
                     <th>Fecha de Ingreso</th>
                     <th>Cargo</th>
                     <th>Contrato</th>
-                    <th>Centro de Costos</th>
-                    <th>Division</th>
                     <th>Usuario que modifico</th>
                     <th>Validacion</th>
                 </thead>
@@ -43,8 +41,6 @@
                     <td>{{$emp->fechaIngresoEmpleado}}</td>
                     <td>{{$emp->tipocargo['descripcionTipoCargo']}}</td>
                     <td>{{$emp->tipocontrato['descripcionTipoContrato']}}</td>
-                    <td>{{$emp->centrocosto['descripcionCentroCostos']}}</td>
-                    <td>{{$emp->division['descripcionDivision']}}</td>
                     <td>{{$emp->users['name']}}</td>
                     @if($emp->validacionEmpleado == '0')
                     <td><a href="{{route('statusempleado',['id' => $emp->cedula])}}"><button class="btn btn-outline-success">Aprobar</button></td>
@@ -52,7 +48,7 @@
                 </tr>
                 @endforeach
             </table>
-
+            {{ $empleados->render() }}
         </div>
     </div>
 </div>

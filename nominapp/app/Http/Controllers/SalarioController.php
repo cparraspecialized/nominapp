@@ -50,6 +50,7 @@ class SalarioController extends Controller
             $salario->auxilioComunicacion=$request->get('auxilioComunicacion');
             $salario->gastoRepresentacion=$request->get('gastoRepresentacion');
             $salario->auxilioMedicinaPrepagada=$request->get('auxilioMedicinaPrepagada');
+            $salario->fkidUsuario=auth()->user()->id; 
             if ($salario->save()) {
                 DB::commit();
                 return redirect()->route('Salarios.index')->with('info','Salario creada con exito'); 
@@ -61,6 +62,29 @@ class SalarioController extends Controller
             return back()->with('error', 'Error al crear el salario'.$e);
 
        }
+    }
+
+    public function editsalario($id){
+
+        $empleados= Empleado::pluck('nombreEmpleado','cedula');
+        return view("Salarios.editsalario",["salario"=>Salario::findOrFail($id)],compact('empleados'));
+
+    }
+
+
+    public function update(Request $request, $id){
+        $salario =Salario::findOrFail($request->id);  
+        $salario->salarioBase=$request->get('salarioBase');
+        $salario->bonificacion=$request->get('bonificacion');
+        $salario->auxilioTransporte=$request->get('auxilioTransporte');
+        $salario->auxilioMedicinaPrepagada=$request->get('auxilioMedicinaPrepagada');
+        $salario->fkidUsuario=auth()->user()->id;
+        $salario->update();
+        
+        return Redirect::to('Salarios');     
+
+
+      
     }
     
     public function export(Request $request){

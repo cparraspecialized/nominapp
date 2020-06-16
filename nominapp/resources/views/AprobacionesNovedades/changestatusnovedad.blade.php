@@ -19,6 +19,7 @@
           </div>
             <div class="form-row form-group  col-sm-12">
                 <input type="text" hidden name="id" class="form-control" readonly value="{{$novedad->id}}" placeholder="Cedula del empleado">
+            </div>    
             <div class="col-sm-4 form-group">
                 <label for="fkcedulaEmpleado"><p class="font-weight-normal">Cedula</p></label>
                 <input type="text" name="fkcedulaEmpleado" class="form-control" readonly value="{{$novedad->fkcedulaEmpleado}}" placeholder="Cedula del empleado">

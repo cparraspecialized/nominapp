@@ -16,7 +16,7 @@ class Salario extends Model
    public $timestamps=true;
 
    protected $filliable=[
-        'fkCedulaEmpleado',
+       'fkCedulaEmpleado',
        'salarioBase',       
        'bonificacion',
        'auxilioTransporte',
@@ -24,10 +24,16 @@ class Salario extends Model
        'auxilioComunicacion',
        'gastoRepresentacion',
        'auxilioMedicinaPrepagada',
+       'fkidUsuario',
        'created_at',
        'updated_at'
    ];
    public function empleados(){
     return $this->belongsTo(Empleado::class,'fkCedulaEmpleado');
+  }
+
+  public function users(){
+    return $this->belongsTo(User::class,'fkidUsuario');
 }
+
 }

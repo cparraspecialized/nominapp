@@ -14,7 +14,7 @@ class AprobacionHoraExtraController extends Controller
 {
     public function index(Request $request){
 
-        $horasextras =HoraExtra::where('validacionHora','=','0')->orderBy('created_at','desc')->get();
+        $horasextras =HoraExtra::where('validacionHora','=','0')->orderBy('created_at','desc')->paginate(8);
             
         return view('AprobacionesHorasExtras.index',["horasextras"=>$horasextras]);
     }   
@@ -34,7 +34,7 @@ class AprobacionHoraExtraController extends Controller
             $horasextras->observacionHoraExtra=$request->get('observacionHoraExtra');
             $horasextras->validacionHora=('1'); 
             $horasextras->update();
-            return Redirect::to('HoraExtras'); 
+            return Redirect::to('AprobacionesHorasExtras'); 
 
         }
     }

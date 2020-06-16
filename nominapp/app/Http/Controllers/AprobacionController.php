@@ -19,8 +19,10 @@ class AprobacionController extends Controller
 {
     public function index(Request $request){
 
-        $empleados =Empleado::where('validacionEmpleado','=','0')->orderBy('created_at','desc')->get();
-            
+        $empleados =Empleado::where('validacionEmpleado','=','0')->orderBy('created_at','desc')
+        ->paginate(8);
+        
+        
         return view('AprobacionesEmpleados.index',["empleados"=>$empleados]);
     }   
 
@@ -53,7 +55,7 @@ class AprobacionController extends Controller
             $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
             $empleado->validacionEmpleado=('1'); 
             $empleado->update();
-            return Redirect::to('Empleados'); 
+            return Redirect::to('AprobacionesEmpleados'); 
 
         }
     }
