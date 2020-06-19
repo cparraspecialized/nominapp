@@ -22,14 +22,19 @@ class SalarioController extends Controller
 
     public function create(){
 
-        $empleados= Empleado::pluck('nombreEmpleado','cedula');
+        $empleados = Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
+        ->LEFTJOIN('salarios','fkCedulaEmpleado','=','empleados.cedula')
+        ->WHERE('empleados.cedula','!=','salarios.fkCedulaEmpleado')
+        ->WHERENULL('salarios.fkCedulaEmpleado')
+        ->get()->pluck('nombre','cedula');
         return view('Salarios.create',compact('empleados'));
 
     } 
 
     public function index(Request $request){
-
-        $empleados= Empleado::pluck('nombreEmpleado','cedula');
+        
+        $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
+        ->get()->pluck('nombre','cedula');
         $salario =Salario::orderBy('id','desc')     
         ->paginate(8);
 

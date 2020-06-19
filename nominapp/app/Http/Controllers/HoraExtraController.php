@@ -27,10 +27,12 @@ class HoraExtraController extends Controller
         $tipohoras= TipoHora::pluck('descripcionTipo','id');
 
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador'){
-            $empleados= Empleado::pluck('nombreEmpleado','cedula');
+            $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
+            ->get()->pluck('nombre','cedula');
         }else{
-            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
-
+            $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
+            ->where('fkidTienda','=',auth()->user()->tiendas['id'])
+            ->get()->pluck('nombre','cedula');
         }  
         
         return view('HoraExtras.create',compact('empleados','tipohoras'));
@@ -40,7 +42,8 @@ class HoraExtraController extends Controller
     public function index(Request $request){
 
         if (auth()->user()->rol['tipo_Rol'] == 'Administrador') {
-            $empleados= Empleado::pluck('nombreEmpleado','cedula');
+            $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
+            ->get()->pluck('nombre','cedula');
             $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
 
             $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
@@ -68,7 +71,9 @@ class HoraExtraController extends Controller
             
             return view('HoraExtras.index',['fkcedulaEmpleado'=>$fkcedulaEmpleado,'fkidTipoHora'=>$fkidTipoHora,'fechaHorasExtra'=>$fechaHorasExtra,'fechafinHorasExtra'=>$fechafinHorasExtra],compact('horasextras','empleados','tipohoraextra'));
         }else{
-            $empleados= Empleado::where('fkidTienda','=',auth()->user()->tiendas['id'])->pluck('nombreEmpleado','cedula');
+            $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
+            ->where('fkidTienda','=',auth()->user()->tiendas['id'])
+            ->get()->pluck('nombre','cedula');
             $tipohoraextra= TipoHora::pluck('descripcionTipo','id');
 
             $fkcedulaEmpleado=trim($request->get('fkcedulaEmpleado'));
