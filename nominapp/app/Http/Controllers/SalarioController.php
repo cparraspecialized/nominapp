@@ -35,10 +35,12 @@ class SalarioController extends Controller
         
         $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
         ->get()->pluck('nombre','cedula');
-        $salario =Salario::orderBy('id','desc')     
+        $fkcedulaEmpleado=trim($request->get('fkCedulaEmpleado'));
+        $salario =Salario::orderBy('id','desc') 
+        ->where('fkCedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')   
         ->paginate(8);
 
-        return view('Salarios.index', compact('salario','empleados'));       
+        return view('Salarios.index',['fkCedulaEmpleado'=>$fkcedulaEmpleado], compact('salario','empleados'));       
     }
 
     public function store(Request $request){
