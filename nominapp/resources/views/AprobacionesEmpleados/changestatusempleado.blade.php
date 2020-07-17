@@ -56,6 +56,14 @@
             {!! Form::select('fkidTipoRetiro',$tiporetiro,null,['id'=>'fkidTipoRetiro', 'placeholder'=>'Seleccione Motivo de Retiro','class' => 'form-control'])!!}
           </div>
           <div class="col-sm-4 form-group">
+            <label for="tipoPosicion" ><p class="font-weight-normal">Motivo Contratación </p></label>              
+            <select class="form-control" name="tipoPosicion" required>
+              <option value=''>{{$empleado->tipoPosicion}}</option>
+              <option value='Presupuestada'>Fija</option>
+              <option value='Extra'>Temporal</option>
+            </select>
+          </div>
+          <div class="col-sm-4 form-group">
             <label for="fechaIngresoEmpleado"><p class="font-weight-normal">Fecha de ingreso </p></label>
             <input type="date" name="fechaIngresoEmpleado" class="form-control" value="{{$empleado->fechaIngresoEmpleado}}" placeholder="fechaIngresoEmpleado">
           </div>
@@ -63,7 +71,7 @@
             <label for="fechaFinContratoEmpleado"><p class="font-weight-normal">Fecha fin de contrato </p></label>
             <input type="date" name="fechaFinContratoEmpleado" class="form-control" value="{{$empleado->fechaFinContratoEmpleado}}" placeholder="fechaIngresoEmpleado">
           </div>
-          <div class="col-sm-4 form-group">
+          <div class="col-sm-12 form-group">
             <label for="fechaRetiroEmpleado"><p class="font-weight-normal">Fecha de retiro </p></label>
             <input type="date" name="fechaRetiroEmpleado" class="form-control" value="{{$empleado->fechaRetiroEmpleado}}" placeholder="fechaRetiroEmpleado">
           </div>

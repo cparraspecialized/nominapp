@@ -12,7 +12,7 @@
         
 <div class="row">
     <div class="col-lg-12 col-md-12 col.sm-12 col-xs-12">
-        <h3>Consulta de Empleados</h3>
+        <h3>Aprobaciones en esperda de Empleados</h3>
     
     </div>
 </div>

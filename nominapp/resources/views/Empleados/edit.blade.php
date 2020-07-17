@@ -35,13 +35,21 @@
               <label for="fechaFinContratoEmpleado"><p class="font-weight-normal">Fecha fin de contrato </p></label>
               <input type="date" name="fechaFinContratoEmpleado" class="form-control" value="{{$empleado->fechaFinContratoEmpleado}}" placeholder="fechaIngresoEmpleado">
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkidTipoCargo"  ><p class="font-weight-normal">Cargo </p></label>
               {!! Form::select('fkidTipoCargo',$tipocargo,null,['id'=>'fkidTipoCargo', 'placeholder'=>'Seleccione Cargo','value'=>'{{$empleado->fkidTipoCargo}}','class' => 'form-control'])!!}
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
               <label for="fkidTipoContrato"  ><p class="font-weight-normal">Contrato </p></label>
               {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato', 'placeholder'=>'Seleccione Contrato','value'=>'{{$empleado->fkidTipoContrato}}','class' => 'form-control'])!!}
+            </div>
+            <div class="col-sm-4 form-group">
+              <label for="tipoPosicion" ><p class="font-weight-normal">Motivo Contratación </p></label>              
+              <select class="form-control" name="tipoPosicion" required>
+                <option value=''>{{$empleado->tipoPosicion}}</option>
+                <option value='Presupuestada'>Fija</option>
+                <option value='Extra'>Temporal</option>
+              </select>
             </div>
             <div class="col-sm-6 form-group">
               <label for="fkcentroCostos"  ><p class="font-weight-normal">Centro de Costos </p></label>

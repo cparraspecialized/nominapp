@@ -158,6 +158,7 @@ class EmpleadoController extends Controller
             $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
+            $empleado->tipoPosicion=$request->get('tipoPosicion');
             $empleado->fkcentroCostos=$request->get('fkcentroCostos');
             $empleado->fkdivision=$request->get('fkdivision');
             $empleado->fkidUsuario=auth()->user()->id;   

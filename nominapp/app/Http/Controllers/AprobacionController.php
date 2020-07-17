@@ -50,7 +50,8 @@ class AprobacionController extends Controller
             $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');
             $empleado->fechaFinContratoEmpleado=$request->get('fechaFinContratoEmpleado');
             $empleado->fkcentroCostos=$request->get('fkcentroCostos');
-            $empleado->fkdivision=$request->get('fkdivision');            
+            $empleado->fkdivision=$request->get('fkdivision'); 
+            $empleado->fkidTipoCargo=$request->get('fkidTipoCargo');         
             $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
             $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
             $empleado->validacionEmpleado=('1'); 
