@@ -27,6 +27,10 @@
               <input type="number" name="auxilioTransporte" class="form-control" placeholder="Valor auxilio de transporte">
             </div>
             <div class="form-group">
+              <label for="auxilioTransporteEspecial"><p class="font-weight-normal">Ingrese auxilio de transporte especial: </p></label>
+              <input type="number" name="auxilioTransporteEspecial" class="form-control" placeholder="Valor auxilio de transporte especial">
+            </div>
+            <!--<div class="form-group">
               <label for="auxilioCapacitacion"><p class="font-weight-normal">Ingrese auxilio de capacitación: </p></label>
               <input type="number" name="auxilioCapacitacion" class="form-control" placeholder="Valor auxilio de capacitacion">
             </div>
@@ -37,7 +41,7 @@
             <div class="form-group">
               <label for="gastoRepresentacion"><p class="font-weight-normal">Ingrese gasto representantes: </p></label>
               <input type="number" name="gastoRepresentacion" class="form-control" placeholder="Valor gasto representantes">
-            </div>
+            </div>-->
             <div class="form-group">
               <label for="auxilioMedicinaPrepagada"><p class="font-weight-normal">Ingrese auxilio de Medicina Prepagada: </p></label>
               <input type="number" name="auxilioMedicinaPrepagada" class="form-control" placeholder="Valor auxilio de Mediciana prepagada">

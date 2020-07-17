@@ -276,7 +276,7 @@
           </li>
         </ul>
         @endif
-        @if (Auth::user()->rol['tipo_Rol'] != 'Administrador')
+        @if (Auth::user()->rol['tipo_Rol'] == 'Usuario')
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -331,6 +331,77 @@
                       <p>Consultar Hora Extra</p>
                     </a>
                   </li>         
+                </ul>
+              </li>
+        </ul>
+        @endif
+        @if (Auth::user()->rol['tipo_Rol'] == 'Coordinador Tiendas')
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+             
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-plus-square"></i>
+                  <p>
+                    Gestion Empleados
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('Empleados/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Empleados</p>
+                    </a>
+                  </li> 
+                  <li class="nav-item">
+                    <a href="{{route('bonificaciones')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Bonificaciones</p>
+                    </a>
+                  </li>                                        
+                </ul>
+              </li>  
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Gestion Novedades
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('Novedades/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Novedades</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>   
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-calendar-alt"></i>
+                  <p>
+                    Gestion Horas Extras
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('HoraExtras/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Hora Extra</p>
+                    </a>
+                  </li> 
+                  <li class="nav-item">
+                    <a href="{{url('AprobacionesHorasExtras/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Aprobacion Hora Extra</p>
+                    </a>
+                  </li>          
                 </ul>
               </li>
         </ul>

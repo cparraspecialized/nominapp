@@ -55,6 +55,7 @@ Route::get('AprobacionesNovedades/statusnovedad/{id}', 'AprobacionNovedadControl
 Route::post('AprobacionesNovedades/changestatusnovedad/', 'AprobacionNovedadController@changestatusnovedad')->name('changestatusnovedad');
 Route::get('AprobacionesHorasExtras/statushora/{id}', 'AprobacionHoraExtraController@statushora')->name('statushora');
 Route::post('AprobacionesHorasExtras/changestatushora/', 'AprobacionHoraExtraController@changestatushora')->name('changestatushora');
+Route::get('Salarios/bonificaciones','SalarioController@bonificaciones')->name('bonificaciones');
 
 Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 Route::get('ExportNovedades', 'NovedadController@export'); 

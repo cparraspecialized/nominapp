@@ -20,6 +20,7 @@ class Salario extends Model
        'salarioBase',       
        'bonificacion',
        'auxilioTransporte',
+       'auxilioTransporteEspecial',
        'auxilioCapacitacion',
        'auxilioComunicacion',
        'gastoRepresentacion',

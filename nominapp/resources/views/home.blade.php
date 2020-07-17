@@ -34,17 +34,17 @@
 
                     </div>
 
-                    @if($presupuestada <= 17)
-                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion presupuestada es de {{$presupuestada ?? ''}}</li>
+                    @if($presupuestada <= 95)
+                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion fija es de {{$presupuestada ?? ''}}</li>
                     @endif
-                    @if($presupuestada > 17)
-                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion presupuestada es de {{$presupuestada ?? ''}}</li>
+                    @if($presupuestada > 95)
+                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion fija es de {{$presupuestada ?? ''}}</li>
                     @endif
-                    @if($extra <= 17)
-                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion extra es de {{$extra ?? ''}}</li>
+                    @if($extra <= 100)
+                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion temporal es de {{$extra ?? ''}}</li>
                     @endif
-                    @if($extra > 17)
-                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion extra es de {{$extra ?? ''}}</li>
+                    @if($extra > 100)
+                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion temporal es de {{$extra ?? ''}}</li>
                     @endif
                 </div>
             </div>

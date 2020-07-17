@@ -28,6 +28,7 @@ class StoreSalarioRequest extends FormRequest
             'salarioBase' => 'Solo se aceptan números',
             'bonificacion' => 'Solo se aceptan números',
             'auxilioTransporte' => 'Solo se aceptan números',
+            'auxilioTransporteEspecial' => 'Solo se aceptan números',
             'auxilioCapacitacion' => 'Solo se aceptan números',
             'auxilioComunicacion' => 'Solo se aceptan números',
             'gastoRepresentacion' => 'Solo se aceptan números',

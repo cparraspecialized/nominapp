@@ -54,11 +54,11 @@
               {!! Form::select('fkdivision',$division,null,['id'=>'fkdivision','required', 'placeholder'=>'Seleccione Division','class' => 'form-control'])!!}
             </div>
             <div class="col-sm-6 form-group">
-              <label for="tipoPosicion"  ><p class="font-weight-normal">¿Presupuestada? </p></label>
+              <label for="tipoPosicion"  ><p class="font-weight-normal">Motivo Contratación </p></label>
               <select class="form-control" name="tipoPosicion" required>
                 <option value=''>Seleccionar...</option>
-                <option value='Presupuestada'>Presupuestada</option>
-                <option value='Extra'>Extra</option>
+                <option value='Presupuestada'>Fija</option>
+                <option value='Extra'>Temporal</option>
               </select>
             </div>
             </div>

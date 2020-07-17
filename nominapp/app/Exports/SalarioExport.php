@@ -5,7 +5,7 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class SalarioExport implements FromCollection
+class SalarioExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -20,13 +20,14 @@ class SalarioExport implements FromCollection
     public function headings(): array
     {
         return [
-            'salarioBase',
-            'bonificacion',
-            'auxilioTransporte',
-            'auxilioCapacitacion',
-            'auxilioComunicacion',
-            'gastoRepresentacion',
-            'auxilioMedicinaPrepagada',      
+            'id',
+            'Empleado',
+            'Salario',
+            'Bonificacion',
+            'Salario Base',
+            'Auxilio de Transporte',
+            'Auxilio de Transporte Especial',
+            'Auxilio Medicina Prepagada',      
 
         ];
     }
