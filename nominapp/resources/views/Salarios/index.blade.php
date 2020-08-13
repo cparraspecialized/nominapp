@@ -25,7 +25,7 @@
                             <th>Salario</th>
                             <th>Bonificacion</th>
                             <th>Auxilio de transporte</th>
-                            <th>Auxilio de transporte extra</th>
+                            <th>Auxilio especial de transporte</th>
                             <th>Salario Base</th>
                             <th>Auxilio Medicina Prepagada</th>
                             <th>Usuario</th>
@@ -37,7 +37,11 @@
                             <td>{{$sal->empleados['nombreEmpleado']}} {{$sal->empleados['apellidoEmpleado']}}</td>
                             <td>${{number_format($sal->salarioBase, 0)}}</td>
                             <td>${{number_format($sal->bonificacion, 0)}}</td>
-                            <td>${{number_format($sal->auxilioTransporte, 0)}}</td>
+                            @if(($parametro[0]->salarioMinimo + $parametro[0]->salarioMinimo)>($sal->salarioBase + $sal->bonificacion))
+                            <td>${{number_format($parametro[0]->auxilioTransportes, 0)}}</td>
+                            @else
+                            <td>${{number_format(0)}}</td>
+                            @endif
                             <td>${{number_format($sal->auxilioTransporteEspecial, 0)}}</td>
                             <td>${{number_format($sal->salarioBase + $sal->bonificacion, 0)}}</td>
                             <td>${{number_format($sal->auxilioMedicinaPrepagada, 0)}}</td>

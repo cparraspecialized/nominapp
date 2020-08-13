@@ -8,6 +8,7 @@ use App\Http\Requests\SalarioFormRequest;
 use App\Salario;
 use App\Tienda;
 use App\Empleado;
+use App\Parametro;
 use App\Http\Requests\StoreSalarioRequest;
 use App\Exports\SalarioExport;
 use Carbon\Carbon;
@@ -36,12 +37,13 @@ class SalarioController extends Controller
         
         $empleados= Empleado::select(DB::raw('CONCAT(nombreEmpleado," ",apellidoEmpleado) as nombre'),'cedula')
         ->get()->pluck('nombre','cedula');
+        $parametro = Parametro::orderby('id')->get();
         $fkcedulaEmpleado=trim($request->get('fkCedulaEmpleado'));
         $salario = Salario::orderBy('id','desc') 
         ->where('fkCedulaEmpleado','like','%'.$fkcedulaEmpleado.'%')   
         ->paginate(8);
 
-        return view('Salarios.index',['fkCedulaEmpleado'=>$fkcedulaEmpleado], compact('salario','empleados'));       
+        return view('Salarios.index',['fkCedulaEmpleado'=>$fkcedulaEmpleado], compact('salario','empleados','parametro'));       
     }
 
     public function show(Request $request){

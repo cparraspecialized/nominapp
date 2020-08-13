@@ -23,11 +23,7 @@
               <input type="number" name="bonificacion" class="form-control" placeholder="Valor de la bonificacion">
             </div>
             <div class="form-group">
-              <label for="auxilioTransporte"><p class="font-weight-normal">Ingrese auxilio de transporte: </p></label>
-              <input type="number" name="auxilioTransporte" class="form-control" placeholder="Valor auxilio de transporte">
-            </div>
-            <div class="form-group">
-              <label for="auxilioTransporteEspecial"><p class="font-weight-normal">Ingrese auxilio de transporte especial: </p></label>
+              <label for="auxilioTransporteEspecial"><p class="font-weight-normal">Ingrese auxilio especial de transporte: </p></label>
               <input type="number" name="auxilioTransporteEspecial" class="form-control" placeholder="Valor auxilio de transporte especial">
             </div>
             <!--<div class="form-group">

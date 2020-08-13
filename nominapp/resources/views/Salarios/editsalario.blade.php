@@ -33,13 +33,7 @@
             </div>
             @if(Auth::user()->rol['tipo_Rol'] == 'Administrador')
             <div class="col-sm-4 form-group">
-              <label for="auxilioTransporte"><p class="font-weight-normal">Auxilio de transporte </p></label>
-              <input type="text" name="auxilioTransporte" class="form-control" value="{{$salario->auxilioTransporte}}" placeholder="Auxilio de transporte">
-            </div>
-            @endif
-            @if(Auth::user()->rol['tipo_Rol'] == 'Administrador')
-            <div class="col-sm-4 form-group">
-              <label for="auxilioTransporteEspecial"><p class="font-weight-normal">Auxilio de transporte especial</p></label>
+              <label for="auxilioTransporteEspecial"><p class="font-weight-normal">Auxilio especial de transporte </p></label>
               <input type="text" name="auxilioTransporteEspecial" class="form-control" value="{{$salario->auxilioTransporteEspecial}}" placeholder="Auxilio de transporte especial">
             </div>
             @endif

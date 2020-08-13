@@ -140,6 +140,12 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Consultar Salarios</p>
                     </a>
+                  </li> 
+                  <li class="nav-item">
+                    <a href="{{url('Parametros/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Parametros</p>
+                    </a>
                   </li>  
                   <li class="nav-item">
                     <a href="{{URL('AprobacionesEmpleados/')}}" class="nav-link">

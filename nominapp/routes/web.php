@@ -40,6 +40,7 @@ Route::resource('Salarios', 'SalarioController')->middleware('auth');
 Route::resource('AprobacionesEmpleados', 'AprobacionController')->middleware('auth');
 Route::resource('AprobacionesNovedades', 'AprobacionNovedadController')->middleware('auth');
 Route::resource('AprobacionesHorasExtras', 'AprobacionHoraExtraController')->middleware('auth');
+Route::resource('Parametros', 'ParametroController')->middleware('auth');
 //Route::get('/home', 'ReportesController@index');
 
 
@@ -56,6 +57,8 @@ Route::post('AprobacionesNovedades/changestatusnovedad/', 'AprobacionNovedadCont
 Route::get('AprobacionesHorasExtras/statushora/{id}', 'AprobacionHoraExtraController@statushora')->name('statushora');
 Route::post('AprobacionesHorasExtras/changestatushora/', 'AprobacionHoraExtraController@changestatushora')->name('changestatushora');
 Route::get('Salarios/bonificaciones','SalarioController@bonificaciones')->name('bonificaciones');
+Route::get('Parametros/editparametro/{id}', 'ParametroController@editparametro')->name('editparametro');
+Route::post('Parametros/update/', 'ParametroController@update')->name('updatepara');
 
 Route::get('ExportEmpleados', 'EmpleadoController@export'); 
 Route::get('ExportNovedades', 'NovedadController@export'); 

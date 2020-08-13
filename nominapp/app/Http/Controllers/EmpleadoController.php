@@ -63,6 +63,30 @@ class EmpleadoController extends Controller
                     
                 }
                 return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));  
+            }else if (auth()->user()->rol['tipo_Rol'] == 'Coordinador Tiendas' ){
+                $cedula=trim($request->get('cedula'));
+                $nombreEmpleado=trim($request->get('nombreEmpleado'));
+                $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
+                $fkidTienda=trim($request->get('fkidTienda'));
+                if($cedula == ""){                    
+                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    ->where('cedula','like','%'.$cedula.'%')
+                    ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                    ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                    ->where('fkidTienda','like','%'.$fkidTienda.'%')
+                    ->paginate(8);
+                    
+                }else{
+                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    ->where('cedula','=',$cedula)
+                    ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
+                    ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
+                    ->where('fkidTienda','like','%'.$fkidTienda.'%')
+                    ->paginate(8);
+                    
+                }
+                return view('Empleados.index',["cedula"=>$cedula,"nombreEmpleado"=>$nombreEmpleado,"apellidoEmpleado" =>$apellidoEmpleado, "fkidTienda" =>$fkidTienda], compact('empleados'));  
+
             }else{
                 $cedula=trim($request->get('cedula'));
                 $nombreEmpleado=trim($request->get('nombreEmpleado'));
