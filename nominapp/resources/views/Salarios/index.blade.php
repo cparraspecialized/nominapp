@@ -26,7 +26,7 @@
                             <th>Bonificacion</th>
                             <th>Auxilio de transporte</th>
                             <th>Auxilio especial de transporte</th>
-                            <th>Salario Base</th>
+                            <th>Salario Final</th>
                             <th>Auxilio Medicina Prepagada</th>
                             <th>Usuario</th>
                             <th>Editar</th>
