@@ -14,11 +14,11 @@ use App\Empleado;
 Route::get('/', function () {
 
     
-    $presupuestada =Empleado::orderBy('created_at','desc')
-    ->Where('empleados.tipoPosicion','=','Presupuestada')->count();
-    $extra =Empleado::orderBy('created_at','desc')
-    ->Where('empleados.tipoPosicion','=','extra')->count();
-    return view('home',["presupuestada"=>$presupuestada,"extra"=>$extra]);
+    $Fija =Empleado::orderBy('created_at','desc')
+    ->Where('empleados.tipoPosicion','=','Fija')->count();
+    $Temporal =Empleado::orderBy('created_at','desc')
+    ->Where('empleados.tipoPosicion','=','Temporal')->count();
+    return view('home',["Fija"=>$Fija,"Temporal"=>$Temporal]);
 })->middleware('auth');
 
 Auth::routes();

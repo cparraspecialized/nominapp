@@ -35,16 +35,16 @@
                     </div>
 
                     @if($Fija <= 95)
-                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion fija es de {{$Fija ?? ''}}</li>
+                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion fija es de {{$Fija}}</li>
                     @endif
                     @if($Fija > 95)
-                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion fija es de {{$Fija ?? ''}}</li>
+                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion fija es de {{$Fija}}</li>
                     @endif
                     @if($Temporal <= 100)
-                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion temporal es de {{$Temporal ?? ''}}</li>
+                    <li class="list-group-item list-group-item-success">El numero de empleados contratados con la posicion temporal es de {{$Temporal}}</li>
                     @endif
                     @if($Temporal > 100)
-                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion temporal es de {{$Temporal ?? ''}}</li>
+                    <li class="list-group-item list-group-item-danger">El numero de empleados contratados con la posicion temporal es de {{$Temporal}}</li>
                     @endif
                 </div>
             </div>
