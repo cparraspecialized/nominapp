@@ -32,7 +32,8 @@ class Empleado extends Model
        'fkdivision',
        'fksalario',
        'fkidUsuario',
-       'fechaFinContratoEmpleado'
+       'fechaFinContratoEmpleado',
+       'validacionRetiro'
 
    ];
 

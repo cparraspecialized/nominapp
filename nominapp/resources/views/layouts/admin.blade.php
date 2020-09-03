@@ -152,6 +152,12 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Aprobaciones</p>
                     </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{URL('AprobacionesPersonal/')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Aprobaciones Retiros/Reingresos</p>
+                    </a>
                   </li>                                      
                 </ul>
               </li>  

@@ -46,7 +46,8 @@ class EmpleadoController extends Controller
                 $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
                 $fkidTienda=trim($request->get('fkidTienda'));
                 if($cedula == ""){                    
-                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')
+                    ->where('validacionRetiro','=','1')->orderBy('created_at','desc')
                     ->where('cedula','like','%'.$cedula.'%')
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -54,7 +55,8 @@ class EmpleadoController extends Controller
                     ->paginate(8);
                     
                 }else{
-                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')
+                    ->where('validacionRetiro','=','1')->orderBy('created_at','desc')
                     ->where('cedula','=',$cedula)
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -69,7 +71,8 @@ class EmpleadoController extends Controller
                 $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
                 $fkidTienda=trim($request->get('fkidTienda'));
                 if($cedula == ""){                    
-                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')
+                    ->where('validacionRetiro','=','1')->orderBy('created_at','desc')
                     ->where('cedula','like','%'.$cedula.'%')
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -77,7 +80,8 @@ class EmpleadoController extends Controller
                     ->paginate(8);
                     
                 }else{
-                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')
+                    ->where('validacionRetiro','=','1')->orderBy('created_at','desc')
                     ->where('cedula','=',$cedula)
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -93,7 +97,8 @@ class EmpleadoController extends Controller
                 $apellidoEmpleado=trim($request->get('apellidoEmpleado'));
                 $fkidTienda=trim($request->get('fkidTienda'));
                 if($cedula == ""){                    
-                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')
+                    ->where('validacionRetiro','=','1')->orderBy('created_at','desc')
                     ->where('cedula','like','%'.$cedula.'%')
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -101,7 +106,8 @@ class EmpleadoController extends Controller
                     ->paginate(8);
                     
                 }else{
-                    $empleados =Empleado::where('validacionEmpleado','=','1')->orderBy('created_at','desc')
+                    $empleados =Empleado::where('validacionEmpleado','=','1')
+                    ->where('validacionRetiro','=','1')->orderBy('created_at','desc')
                     ->where('cedula','=',$cedula)
                     ->where('nombreEmpleado','like','%'.$nombreEmpleado.'%')
                     ->where('apellidoEmpleado','like','%'.$apellidoEmpleado.'%')
@@ -226,7 +232,8 @@ class EmpleadoController extends Controller
                 $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
                 $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
                 $empleado->fkidUsuario=auth()->user()->id; 
-                $empleado->estadoEmpleado=('INACTIVO'); 
+                $empleado->estadoEmpleado=('INACTIVO');
+                $empleado->validacionRetiro=0;
                 $empleado->update();
                 return Redirect::to('Empleados'); 
     
@@ -238,7 +245,8 @@ class EmpleadoController extends Controller
                 $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
                 $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
                 $empleado->fkidUsuario=auth()->user()->id; 
-                $empleado->estadoEmpleado=('ACTIVO'); 
+                $empleado->estadoEmpleado=('ACTIVO');
+                $empleado->validacionRetiro=0;
                 $empleado->update();
                 return Redirect::to('Empleados');
     
