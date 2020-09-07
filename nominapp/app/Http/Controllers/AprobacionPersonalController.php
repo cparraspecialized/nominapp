@@ -47,7 +47,7 @@ class AprobacionPersonalController extends Controller
                 $empleado->fechaRetiroEmpleado=$request->get('fechaRetiroEmpleado');
                 $empleado->fkidTipoRetiro=$request->get('fkidTipoRetiro');
                 $empleado->fkidUsuario=auth()->user()->id; 
-                $empleado->estadoEmpleado=('INACTIVO');
+                $empleado->estadoEmpleado=('ACTIVO');
                 $empleado->validacionRetiro=1;
                 $empleado->update();
                 return Redirect::to('AprobacionesPersonal'); 
@@ -60,7 +60,7 @@ class AprobacionPersonalController extends Controller
                 $empleado->fkidTipoContrato=$request->get('fkidTipoContrato');
                 $empleado->fechaIngresoEmpleado=$request->get('fechaIngresoEmpleado');
                 $empleado->fkidUsuario=auth()->user()->id; 
-                $empleado->estadoEmpleado=('ACTIVO');
+                $empleado->estadoEmpleado=('INACTIVO');
                 $empleado->validacionRetiro=1;
                 $empleado->update();
                 return Redirect::to('AprobacionesPersonal');

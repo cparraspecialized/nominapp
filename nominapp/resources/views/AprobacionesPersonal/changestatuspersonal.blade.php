@@ -31,7 +31,7 @@
                 <label for="apellidoEmpleado" ><p class="font-weight-normal">Apellidos </p></label>
                 <input type="text" name="apellidoEmpleado" class="form-control" readonly value="{{$empleado->apellidoEmpleado}}" placeholder="Apellido del empleado">
             </div>
-            @if ($empleado->estadoEmpleado == 'ACTIVO')
+            @if ($empleado->estadoEmpleado == 'INACTIVO')
             <div class="col-sm-6 form-group">
               <label for="fkidTipoRetiro"  ><p class="font-weight-normal">Motivo de Retiro </p></label>
               {!! Form::select('fkidTipoRetiro',$tiporetiro,null,['id'=>'fkidTipoRetiro', 'placeholder'=>'Seleccione Motivo de Retiro','class' => 'form-control'])!!}
@@ -41,7 +41,7 @@
               <input type="date" name="fechaRetiroEmpleado" class="form-control" placeholder="fechaRetiroEmpleado">
             </div>
             @endif
-            @if ($empleado->estadoEmpleado == 'INACTIVO')
+            @if ($empleado->estadoEmpleado == 'ACTIVO')
             <div class="col-sm-6 form-group">
               <label for="fkidTipoContrato"  ><p class="font-weight-normal">Contrato </p></label>
               {!! Form::select('fkidTipoContrato',$tipocontrato,null,['id'=>'fkidTipoContrato', 'placeholder'=>'Seleccione Contrato','class' => 'form-control'])!!}
